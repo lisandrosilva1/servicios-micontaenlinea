@@ -361,9 +361,6 @@
 
         <!-- Action Buttons -->
         <div class="action-buttons">
-            <a href="https://wa.me/5262421833776?text=Hola%20Diego%2C%20acabo%20de%20hacer%20el%20pago%20de%20mi%20facturación%20electrónica%20CFDI.%20Mi%20referencia%20es%20REF-2024-001847" class="btn btn-whatsapp" target="_blank">
-                💬 Contactar por WhatsApp
-            </a>
             <button class="btn btn-email" onclick="copyToClipboard()">
                 📋 Copiar Referencia
             </button>
@@ -462,15 +459,10 @@
             });
         }
 
-        // Update WhatsApp link with reference
+        // Initialize on page load
         window.addEventListener('load', function() {
             setCurrentDate();
             generateReferenceNumber();
-
-            const ref = document.getElementById('reference-number').textContent;
-            const whatsappBtn = document.querySelector('.btn-whatsapp');
-            const message = `Hola Diego, acabo de hacer el pago de mi facturación electrónica CFDI. Mi referencia es ${ref}`;
-            whatsappBtn.href = `https://wa.me/5262421833776?text=${encodeURIComponent(message)}`;
         });
 
         // Schema.org Event markup for confirmation page
