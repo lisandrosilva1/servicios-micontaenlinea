@@ -929,6 +929,22 @@
                             </div>
                         </div>
 
+                        <!-- Datos de Contacto Section -->
+                        <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 2px solid #e0e0e0;">
+                            <h4 style="color: #3d6e63; margin-bottom: 15px; font-weight: 700;">📧 Datos de Contacto (Para tu Factura)</h4>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Nombre Completo *</label>
+                                <input type="text" id="contact-name-field" placeholder="Tu nombre completo" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Teléfono *</label>
+                                <input type="tel" id="contact-phone-field" placeholder="Tu número de teléfono" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Email *</label>
+                                <input type="email" id="contact-email-field" placeholder="Tu correo electrónico" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                            </div>
+                        </div>
 
                         <!-- Producto/Servicio Section -->
                         <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 2px solid #e0e0e0;">
@@ -1123,6 +1139,9 @@
         function validateForm() {
             const cedulaClienteFile = document.getElementById('cedula-cliente-file').files.length > 0;
             const cedulaReceptorFile = document.getElementById('cedula-receptor-file').files.length > 0;
+            const contactName = document.getElementById('contact-name-field').value.trim();
+            const contactPhone = document.getElementById('contact-phone-field').value.trim();
+            const contactEmail = document.getElementById('contact-email-field').value.trim();
             const description = document.getElementById('description-field').value.trim();
             const quantity = document.getElementById('quantity-field').value;
             const price = document.getElementById('price-field').value;
@@ -1134,7 +1153,7 @@
             const cerFile = document.getElementById('cer-file-field').files.length > 0;
             const keyFile = document.getElementById('key-file-field').files.length > 0;
 
-            const isValid = cedulaClienteFile && cedulaReceptorFile && description && quantity && price && paymentType && paymentMethod && invoiceUse && satUser && satPass && cerFile && keyFile;
+            const isValid = cedulaClienteFile && cedulaReceptorFile && contactName && contactPhone && contactEmail && description && quantity && price && paymentType && paymentMethod && invoiceUse && satUser && satPass && cerFile && keyFile;
             const paymentButton = document.getElementById('payment-button');
 
             if (isValid) {
@@ -1198,6 +1217,9 @@
 
         // Setup formulario
         function setupFileInputs() {
+            document.getElementById('contact-name-field').addEventListener('input', validateForm);
+            document.getElementById('contact-phone-field').addEventListener('input', validateForm);
+            document.getElementById('contact-email-field').addEventListener('input', validateForm);
             document.getElementById('description-field').addEventListener('input', validateForm);
             document.getElementById('quantity-field').addEventListener('input', validateForm);
             document.getElementById('price-field').addEventListener('input', validateForm);
