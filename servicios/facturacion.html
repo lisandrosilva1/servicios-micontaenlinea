@@ -876,10 +876,23 @@
                 <div class="upload-steps" style="display: block;">
                     <div style="background: white; padding: 40px; border-radius: 10px; max-width: 700px; margin: 0 auto;">
 
-                        <!-- RFC Section -->
+                        <!-- Cédulas Fiscales Section -->
                         <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 2px solid #e0e0e0;">
-                            <h4 style="color: #3d6e63; margin-bottom: 15px; font-weight: 700;">📋 Tu RFC (Activo y con correo registrado en SAT)</h4>
-                            <input type="text" id="rfc-field" placeholder="Ej: ABC123456XYZ" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit; text-transform: uppercase;">
+                            <h4 style="color: #3d6e63; margin-bottom: 20px; font-weight: 700;">📋 Cédulas Fiscales</h4>
+
+                            <!-- Cédula del Cliente -->
+                            <div style="margin-bottom: 25px;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 10px;">Cédula Fiscal del Cliente (Foto/Copia) *</label>
+                                <input type="file" id="cedula-cliente-file" accept="image/jpeg,image/png,application/pdf" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 14px; font-family: inherit;">
+                                <span id="cedula-cliente-name" style="display: block; margin-top: 8px; font-size: 12px; color: #999;">Ningún archivo seleccionado</span>
+                            </div>
+
+                            <!-- Cédula de A Quién se Expide -->
+                            <div>
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 10px;">Cédula Fiscal de A Quién se Expide la Factura (Foto/Copia) *</label>
+                                <input type="file" id="cedula-receptor-file" accept="image/jpeg,image/png,application/pdf" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 14px; font-family: inherit;">
+                                <span id="cedula-receptor-name" style="display: block; margin-top: 8px; font-size: 12px; color: #999;">Ningún archivo seleccionado</span>
+                            </div>
                         </div>
 
                         <!-- Cliente Section -->
@@ -1064,7 +1077,8 @@
         // Setup Event Listeners for File Inputs
         // Validar formulario
         function validateForm() {
-            const rfc = document.getElementById('rfc-field').value.trim();
+            const cedulaClienteFile = document.getElementById('cedula-cliente-file').files.length > 0;
+            const cedulaReceptorFile = document.getElementById('cedula-receptor-file').files.length > 0;
             const clientName = document.getElementById('client-name-field').value.trim();
             const clientRfc = document.getElementById('client-rfc-field').value.trim();
             const description = document.getElementById('description-field').value.trim();
@@ -1078,7 +1092,7 @@
             const cerFile = document.getElementById('cer-file-field').files.length > 0;
             const keyFile = document.getElementById('key-file-field').files.length > 0;
 
-            const isValid = rfc && clientName && clientRfc && description && quantity && price && paymentType && paymentMethod && cedulaFiscal && satUser && satPass && cerFile && keyFile;
+            const isValid = cedulaClienteFile && cedulaReceptorFile && clientName && clientRfc && description && quantity && price && paymentType && paymentMethod && cedulaFiscal && satUser && satPass && cerFile && keyFile;
             const paymentButton = document.getElementById('payment-button');
 
             if (isValid) {
@@ -1088,7 +1102,7 @@
             } else {
                 paymentButton.classList.add('disabled');
                 paymentButton.setAttribute('disabled', 'disabled');
-                paymentButton.textContent = 'Completa todos los campos (incluyendo certificados)';
+                paymentButton.textContent = 'Completa todos los campos (incluyendo cédulas y certificados)';
             }
         }
 
@@ -1112,7 +1126,6 @@
 
         // Setup formulario
         function setupFileInputs() {
-            document.getElementById('rfc-field').addEventListener('input', validateForm);
             document.getElementById('client-name-field').addEventListener('input', validateForm);
             document.getElementById('client-rfc-field').addEventListener('input', validateForm);
             document.getElementById('description-field').addEventListener('input', validateForm);
@@ -1124,6 +1137,8 @@
             document.getElementById('sat-user-field').addEventListener('input', validateForm);
             document.getElementById('sat-pass-field').addEventListener('input', validateForm);
 
+            updateFileName('cedula-cliente-file', 'cedula-cliente-name');
+            updateFileName('cedula-receptor-file', 'cedula-receptor-name');
             updateFileName('cer-file-field', 'cer-name');
             updateFileName('key-file-field', 'key-name');
         }
