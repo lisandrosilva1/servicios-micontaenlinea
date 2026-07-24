@@ -274,29 +274,35 @@
             <h2 class="section-title">Agende tu consulta paso a paso</h2>
             <div class="upload-section">
                 <h3>Información para tu Sesión</h3>
-                <p style="margin-bottom: 30px; opacity: 0.9; color: #cc8800;">Carga tu información para que preparemos mejor tu asesoría.</p>
+                <p style="margin-bottom: 30px; opacity: 0.9; color: #1a1a1a;">Completa tus datos para que podamos llamarte a la hora que requieres.</p>
 
-                <div class="upload-steps">
-                    <div class="upload-step active" data-step="1">
-                        <div class="step-number">1</div>
-                        <h4>Documentos Relevantes</h4>
-                        <p>RFC, facturas, o cualquier documento</p>
-                        <label class="file-input-label active-upload" for="docs-input">Seleccionar</label>
-                        <input type="file" id="docs-input" accept=".pdf,.jpg,.png" data-step="1">
-                        <span class="file-name" id="docs-name">Ningún archivo</span>
-                        <div class="upload-progress"><div class="upload-progress-bar" id="docs-progress"></div></div>
-                        <div class="message" id="docs-message"></div>
-                    </div>
+                <div class="upload-steps" style="display: block;">
+                    <div style="background: white; padding: 30px; border-radius: 10px; max-width: 500px; margin: 0 auto;">
+                        <div style="margin-bottom: 25px;">
+                            <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Nombre Completo *</label>
+                            <input type="text" id="client-name" placeholder="Tu nombre" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                        </div>
 
-                    <div class="upload-step" data-step="2">
-                        <div class="step-number">2</div>
-                        <h4>Tus Preguntas</h4>
-                        <p>Describe las dudas que tienes</p>
-                        <label class="file-input-label disabled" for="questions-input">Seleccionar</label>
-                        <input type="file" id="questions-input" accept=".pdf,.jpg,.png" data-step="2" disabled>
-                        <span class="file-name" id="questions-name">Ningún archivo</span>
-                        <div class="upload-progress"><div class="upload-progress-bar" id="questions-progress"></div></div>
-                        <div class="message" id="questions-message"></div>
+                        <div style="margin-bottom: 25px;">
+                            <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Teléfono *</label>
+                            <input type="tel" id="client-phone" placeholder="Tu teléfono (10 dígitos)" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                        </div>
+
+                        <div style="margin-bottom: 25px;">
+                            <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Fecha de Consulta *</label>
+                            <input type="date" id="client-date" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                        </div>
+
+                        <div style="margin-bottom: 30px;">
+                            <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Hora de Consulta *</label>
+                            <input type="time" id="client-time" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                        </div>
+
+                        <div style="background: #f0f0f0; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #3d6e63;">
+                            <p style="font-size: 14px; color: #1a1a1a;"><strong>📞 Te llamaremos a:</strong></p>
+                            <p style="font-size: 16px; font-weight: 600; color: #3d6e63; margin-top: 5px;">+52 624 218 3376</p>
+                            <p style="font-size: 13px; color: #666; margin-top: 8px;">A la hora y fecha que selecciones arriba</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -340,13 +346,37 @@
     </footer>
 
     <script>
-        const SERVICE_CONFIG = { name: 'Asesoría Telefónica 30 min', price: 450, requiredDocs: [{ step: 1, id: 'docs-input' }, { step: 2, id: 'questions-input' }], uploadedFiles: {} };
-        SERVICE_CONFIG.requiredDocs.forEach(doc => { SERVICE_CONFIG.uploadedFiles[doc.id] = null; });
-        function setupFileInputs() { SERVICE_CONFIG.requiredDocs.forEach(doc => { const el = document.getElementById(doc.id); if (el) el.addEventListener('change', handleFileUpload); }); }
-        function handleFileUpload(event) { const input = event.target; const step = parseInt(input.dataset.step); const file = input.files[0]; if (!file) return; simulateUpload(step, file); }
-        function simulateUpload(step, file) { const progressBar = document.querySelector(`[data-step="${step}"] .upload-progress-bar`); const fileNameEl = document.querySelector(`[data-step="${step}"] .file-name`); const stepElement = document.querySelector(`[data-step="${step}"]`); let progress = 0; const interval = setInterval(() => { progress += Math.random() * 30; if (progress > 100) progress = 100; progressBar.style.width = progress + '%'; if (progress === 100) { clearInterval(interval); setTimeout(() => { stepElement.classList.add('completed'); fileNameEl.textContent = '✓ ' + file.name; fileNameEl.style.color = '#00cc00'; SERVICE_CONFIG.uploadedFiles[Object.keys(SERVICE_CONFIG.uploadedFiles)[step - 1]] = file; if (step < SERVICE_CONFIG.requiredDocs.length) { const nextStep = step + 1; document.querySelectorAll(`[data-step="${nextStep}"]`).forEach(el => { if (el.classList.contains('file-input-label')) el.classList.remove('disabled'); }); document.querySelector(`[data-step="${nextStep}"]`).classList.add('active'); } checkAllFilesUploaded(); }, 500); } }, 200); }
-        function checkAllFilesUploaded() { if (Object.values(SERVICE_CONFIG.uploadedFiles).every(f => f !== null)) { const btn = document.getElementById('payment-button'); btn.classList.remove('disabled'); btn.removeAttribute('disabled'); btn.textContent = 'Proceder al Pago - $450'; } }
+        const SERVICE_CONFIG = { name: 'Asesoría Telefónica 30 min', price: 450 };
+
+        function validateFormFields() {
+            const name = document.getElementById('client-name').value.trim();
+            const phone = document.getElementById('client-phone').value.trim();
+            const date = document.getElementById('client-date').value;
+            const time = document.getElementById('client-time').value;
+
+            if (name && phone && date && time) {
+                const btn = document.getElementById('payment-button');
+                btn.classList.remove('disabled');
+                btn.removeAttribute('disabled');
+                btn.textContent = 'Proceder al Pago - $450';
+            } else {
+                const btn = document.getElementById('payment-button');
+                btn.classList.add('disabled');
+                btn.setAttribute('disabled', 'disabled');
+                btn.textContent = 'Completa todos los campos';
+            }
+        }
+
+        function setupFormValidation() {
+            document.getElementById('client-name').addEventListener('input', validateFormFields);
+            document.getElementById('client-phone').addEventListener('input', validateFormFields);
+            document.getElementById('client-date').addEventListener('change', validateFormFields);
+            document.getElementById('client-time').addEventListener('change', validateFormFields);
+        }
+
         document.querySelectorAll('.faq-item').forEach(item => { item.addEventListener('click', function() { const ans = this.querySelector('.faq-answer'); ans.style.display = ans.style.display === 'block' ? 'none' : 'block'; }); });
+
+        document.addEventListener('DOMContentLoaded', setupFormValidation);
         // Handle Payment Button - Mercado Pago Integration
         document.getElementById('payment-button').addEventListener('click', function() {
             if (!this.disabled) {
