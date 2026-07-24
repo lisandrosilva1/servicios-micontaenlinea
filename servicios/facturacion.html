@@ -865,61 +865,80 @@
         </div>
     </section>
 
-    <!-- Progressive Upload Section -->
+    <!-- Formulario de Facturación Mágico -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Sube tus documentos paso a paso</h2>
+            <h2 class="section-title">✨ Formulario de Facturación</h2>
             <div class="upload-section">
-                <h3>Proceso de Validación Progresiva</h3>
-                <p style="margin-bottom: 30px; opacity: 0.9;">Cada documento debe cargarse y validarse con éxito antes de pasar al siguiente paso. No puedes avanzar hasta confirmar la carga.</p>
+                <h3>Completa tus datos para emitir el CFDI</h3>
+                <p style="margin-bottom: 30px; opacity: 0.9;">Ingresa la información fiscal y de la factura. Todos los campos son obligatorios para procesar tu trámite.</p>
 
-                <div class="upload-steps">
-                    <!-- Step 1: RFC -->
-                    <div class="upload-step active" data-step="1">
-                        <div class="step-number">1</div>
-                        <h4>RFC Vigente</h4>
-                        <p>Cédula fiscal o comprobante de RFC activo ante el SAT</p>
-                        <div class="file-input-wrapper">
-                            <label class="file-input-label active-upload" for="rfc-input">Seleccionar Archivo</label>
-                            <input type="file" id="rfc-input" accept=".pdf,.jpg,.png" data-step="1" data-name="RFC">
-                            <span class="file-name" id="rfc-name">Ningún archivo seleccionado</span>
-                        </div>
-                        <div class="upload-progress">
-                            <div class="upload-progress-bar" id="rfc-progress"></div>
-                        </div>
-                        <div class="message" id="rfc-message"></div>
-                    </div>
+                <div class="upload-steps" style="display: block;">
+                    <div style="background: white; padding: 40px; border-radius: 10px; max-width: 700px; margin: 0 auto;">
 
-                    <!-- Step 2: Business Info -->
-                    <div class="upload-step" data-step="2">
-                        <div class="step-number">2</div>
-                        <h4>Información del Negocio</h4>
-                        <p>Datos básicos de tu negocio o actividad económica</p>
-                        <div class="file-input-wrapper">
-                            <label class="file-input-label disabled" for="business-input">Seleccionar Archivo</label>
-                            <input type="file" id="business-input" accept=".pdf,.jpg,.png" data-step="2" data-name="Información Comercial" disabled>
-                            <span class="file-name" id="business-name">Ningún archivo seleccionado</span>
+                        <!-- RFC Section -->
+                        <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 2px solid #e0e0e0;">
+                            <h4 style="color: #3d6e63; margin-bottom: 15px; font-weight: 700;">📋 Tu RFC (Activo y con correo registrado en SAT)</h4>
+                            <input type="text" id="rfc-field" placeholder="Ej: ABC123456XYZ" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit; text-transform: uppercase;">
                         </div>
-                        <div class="upload-progress">
-                            <div class="upload-progress-bar" id="business-progress"></div>
-                        </div>
-                        <div class="message" id="business-message"></div>
-                    </div>
 
-                    <!-- Step 3: CURP -->
-                    <div class="upload-step" data-step="3">
-                        <div class="step-number">3</div>
-                        <h4>Identificación (CURP)</h4>
-                        <p>CURP o copia de identificación oficial</p>
-                        <div class="file-input-wrapper">
-                            <label class="file-input-label disabled" for="curp-input">Seleccionar Archivo</label>
-                            <input type="file" id="curp-input" accept=".pdf,.jpg,.png" data-step="3" data-name="CURP/Identificación" disabled>
-                            <span class="file-name" id="curp-name">Ningún archivo seleccionado</span>
+                        <!-- Cliente Section -->
+                        <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 2px solid #e0e0e0;">
+                            <h4 style="color: #3d6e63; margin-bottom: 15px; font-weight: 700;">👤 Datos del Cliente</h4>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Nombre del Cliente *</label>
+                                <input type="text" id="client-name-field" placeholder="Nombre completo" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">RFC o Clave del Cliente *</label>
+                                <input type="text" id="client-rfc-field" placeholder="RFC del cliente" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit; text-transform: uppercase;">
+                            </div>
                         </div>
-                        <div class="upload-progress">
-                            <div class="upload-progress-bar" id="curp-progress"></div>
+
+                        <!-- Producto/Servicio Section -->
+                        <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 2px solid #e0e0e0;">
+                            <h4 style="color: #3d6e63; margin-bottom: 15px; font-weight: 700;">📦 Descripción de Producto/Servicio</h4>
+                            <textarea id="description-field" placeholder="Describe el producto o servicio facturado..." style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit; min-height: 100px; resize: vertical;"></textarea>
                         </div>
-                        <div class="message" id="curp-message"></div>
+
+                        <!-- Cantidad y Precio Section -->
+                        <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 2px solid #e0e0e0;">
+                            <h4 style="color: #3d6e63; margin-bottom: 15px; font-weight: 700;">💰 Cantidad y Precio</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                <div>
+                                    <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Cantidad *</label>
+                                    <input type="number" id="quantity-field" placeholder="Ej: 1" min="1" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                                </div>
+                                <div>
+                                    <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Precio Unitario (MXN) *</label>
+                                    <input type="number" id="price-field" placeholder="Ej: 1000.00" min="0" step="0.01" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tipo y Forma de Pago Section -->
+                        <div style="margin-bottom: 30px;">
+                            <h4 style="color: #3d6e63; margin-bottom: 15px; font-weight: 700;">💳 Tipo y Forma de Pago</h4>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Tipo de Pago *</label>
+                                <select id="payment-type-field" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                                    <option value="">-- Selecciona tipo de pago --</option>
+                                    <option value="contado">Contado</option>
+                                    <option value="credito">Crédito</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Forma de Pago *</label>
+                                <select id="payment-method-field" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
+                                    <option value="">-- Selecciona forma de pago --</option>
+                                    <option value="efectivo">Efectivo</option>
+                                    <option value="transferencia">Transferencia Bancaria</option>
+                                    <option value="tarjeta">Tarjeta de Crédito</option>
+                                    <option value="cheque">Cheque</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -1000,122 +1019,41 @@
         });
 
         // Setup Event Listeners for File Inputs
-        function setupFileInputs() {
-            SERVICE_CONFIG.requiredDocs.forEach(doc => {
-                const inputElement = document.getElementById(doc.id);
-                if (inputElement) {
-                    inputElement.addEventListener('change', handleFileUpload);
-                }
-            });
-        }
+        // Validar formulario
+        function validateForm() {
+            const rfc = document.getElementById('rfc-field').value.trim();
+            const clientName = document.getElementById('client-name-field').value.trim();
+            const clientRfc = document.getElementById('client-rfc-field').value.trim();
+            const description = document.getElementById('description-field').value.trim();
+            const quantity = document.getElementById('quantity-field').value;
+            const price = document.getElementById('price-field').value;
+            const paymentType = document.getElementById('payment-type-field').value;
+            const paymentMethod = document.getElementById('payment-method-field').value;
 
-        // Handle File Upload
-        function handleFileUpload(event) {
-            const input = event.target;
-            const step = parseInt(input.dataset.step);
-            const docName = input.dataset.name;
-            const file = input.files[0];
-
-            if (!file) return;
-
-            // Validate file type
-            const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
-            if (!allowedTypes.includes(file.type)) {
-                showMessage(step, 'error', '❌ Formato no permitido. Solo PDF, JPG o PNG.');
-                return;
-            }
-
-            // Validate file size (5MB max)
-            const maxSize = 5242880;
-            if (file.size > maxSize) {
-                showMessage(step, 'error', '❌ Archivo muy grande. Máximo 5MB.');
-                return;
-            }
-
-            // Simulate upload with progress
-            simulateUpload(step, file, docName);
-        }
-
-        // Simulate file upload process
-        function simulateUpload(step, file, docName) {
-            const progressBar = document.querySelector(`[data-step="${step}"] .upload-progress-bar`);
-            const fileNameEl = document.querySelector(`[data-step="${step}"] .file-name`);
-            const stepElement = document.querySelector(`[data-step="${step}"]`);
-            let progress = 0;
-
-            // Show uploading state
-            showMessage(step, 'info', '⏳ Validando archivo...');
-
-            // Simulate progress
-            const interval = setInterval(() => {
-                progress += Math.random() * 30;
-                if (progress > 100) progress = 100;
-                progressBar.style.width = progress + '%';
-
-                if (progress === 100) {
-                    clearInterval(interval);
-
-                    // Mark as completed
-                    setTimeout(() => {
-                        stepElement.classList.add('completed');
-                        stepElement.classList.remove('active');
-                        fileNameEl.textContent = '✓ ' + file.name + ' cargado correctamente';
-                        fileNameEl.style.color = '#00cc00';
-                        showMessage(step, 'success', '✅ Archivo validado y guardado exitosamente.');
-
-                        // Store uploaded file
-                        SERVICE_CONFIG.uploadedFiles[Object.keys(SERVICE_CONFIG.uploadedFiles)[step - 1]] = file;
-
-                        // Enable next step
-                        if (step < SERVICE_CONFIG.requiredDocs.length) {
-                            const nextStep = step + 1;
-                            const nextInputs = document.querySelectorAll(`[data-step="${nextStep}"]`);
-                            nextInputs.forEach(el => {
-                                if (el.classList.contains('file-input-label')) {
-                                    el.classList.remove('disabled');
-                                    el.previousElementSibling.removeAttribute('disabled');
-                                } else if (el.tagName === 'INPUT') {
-                                    el.removeAttribute('disabled');
-                                }
-                            });
-
-                            const nextStepEl = document.querySelector(`[data-step="${nextStep}"]`);
-                            if (nextStepEl) {
-                                nextStepEl.classList.add('active');
-                            }
-                        }
-
-                        // Check if all files uploaded
-                        checkAllFilesUploaded();
-                    }, 500);
-                }
-            }, 200);
-        }
-
-        // Show messages
-        function showMessage(step, type, message) {
-            const messageEl = document.querySelector(`[data-step="${step}"] .message`);
-            if (messageEl) {
-                messageEl.textContent = message;
-                messageEl.className = `message ${type} show`;
-                setTimeout(() => {
-                    if (type !== 'success') {
-                        messageEl.classList.remove('show');
-                    }
-                }, 4000);
-            }
-        }
-
-        // Check if all files are uploaded
-        function checkAllFilesUploaded() {
-            const allUploaded = Object.values(SERVICE_CONFIG.uploadedFiles).every(file => file !== null);
+            const isValid = rfc && clientName && clientRfc && description && quantity && price && paymentType && paymentMethod;
             const paymentButton = document.getElementById('payment-button');
 
-            if (allUploaded) {
+            if (isValid) {
                 paymentButton.classList.remove('disabled');
                 paymentButton.removeAttribute('disabled');
                 paymentButton.textContent = 'Proceder al Pago - $189';
+            } else {
+                paymentButton.classList.add('disabled');
+                paymentButton.setAttribute('disabled', 'disabled');
+                paymentButton.textContent = 'Completa todos los campos';
             }
+        }
+
+        // Setup formulario
+        function setupFileInputs() {
+            document.getElementById('rfc-field').addEventListener('input', validateForm);
+            document.getElementById('client-name-field').addEventListener('input', validateForm);
+            document.getElementById('client-rfc-field').addEventListener('input', validateForm);
+            document.getElementById('description-field').addEventListener('input', validateForm);
+            document.getElementById('quantity-field').addEventListener('input', validateForm);
+            document.getElementById('price-field').addEventListener('input', validateForm);
+            document.getElementById('payment-type-field').addEventListener('change', validateForm);
+            document.getElementById('payment-method-field').addEventListener('change', validateForm);
         }
 
         // Handle FAQ clicks
