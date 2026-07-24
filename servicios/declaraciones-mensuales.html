@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Declaraciones Mensuales ISR e IVA ante el SAT. Servicio profesional completo. $1,500 - 24 a 72 horas.">
+    <meta name="keywords" content="declaraciones mensuales, ISR, IVA, SAT, impuestos">
+    <meta property="og:title" content="Declaraciones Mensuales - MiContaEnLínea">
+    <meta property="og:description" content="Presentación profesional de impuestos mensuales. $1,500 - 24 a 72 horas.">
+    <title>Declaraciones Mensuales (ISR, IVA) | MiContaEnLínea</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c2c2c; background: #fafaf8; }
+        nav { background: white; box-shadow: 0 2px 8px rgba(13, 90, 61, 0.1); position: sticky; top: 0; z-index: 100; }
+        nav .container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; }
+        nav .logo { font-size: 20px; font-weight: 700; color: #3d6e63; text-decoration: none; }
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav a { color: #2c2c2c; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: #2d5e54; }
+        .breadcrumb { background: #f5f3f0; padding: 15px 40px; font-size: 14px; color: #666; border-bottom: 1px solid #d4d4ce; }
+        .breadcrumb a { color: #2d5e54; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .hero { background: linear-gradient(135deg, #3d6e63 0%, #2d5e54 100%); color: white; padding: 80px 40px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: rgba(255, 255, 255, 0.05); border-radius: 50%; transform: translate(100px, -50px); }
+        .hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 20px; position: relative; z-index: 1; }
+        .hero .icon { font-size: 72px; margin-bottom: 20px; }
+        .hero .subtitle { font-size: 22px; color: #9d8867; font-weight: 600; margin-bottom: 15px; position: relative; z-index: 1; }
+        .hero .description { font-size: 18px; max-width: 700px; margin: 0 auto; opacity: 0.92; line-height: 1.8; position: relative; z-index: 1; }
+        .section { background: white; padding: 60px 40px; margin-bottom: 20px; }
+        .section-title { font-size: 32px; font-weight: 700; margin-bottom: 40px; color: #3d6e63; position: relative; padding-bottom: 20px; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background: #a65d63; border-radius: 2px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .card { background: #f5f3f0; padding: 25px; border-radius: 12px; border-left: 4px solid #a65d63; transition: all 0.3s; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255, 51, 51, 0.1); }
+        .card h4 { color: #8b4a51; margin-bottom: 10px; font-weight: 700; }
+        .card p { color: #666; font-size: 14px; }
+        .edu-content { background: #ffe6e6; border-left: 5px solid #a65d63; padding: 25px; border-radius: 8px; margin-bottom: 30px; }
+        .edu-content h4 { color: #8b4a51; margin-bottom: 15px; font-weight: 700; }
+        .edu-content p, .edu-content li { color: #666; margin-bottom: 10px; }
+        .edu-content ul { margin-left: 20px; }
+        .faq-item { background: #f5f3f0; padding: 25px; border-radius: 12px; margin-bottom: 20px; cursor: pointer; border-left: 4px solid #a65d63; }
+        .faq-question { font-weight: 700; color: #3d6e63; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { color: #666; margin-top: 15px; display: none; }
+        .upload-section { background: linear-gradient(135deg, #a65d63 0%, #8b4a51 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px; }
+        .upload-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .upload-step { background: rgba(255, 255, 255, 0.1); border: 2px dashed rgba(255, 255, 255, 0.3); border-radius: 10px; padding: 25px; text-align: center; transition: all 0.3s; }
+        .upload-step.completed { background: rgba(0, 255, 0, 0.1); border-color: #00ff00; }
+        .upload-step.active { background: rgba(255, 255, 255, 0.2); border-color: #9d8867; transform: scale(1.02); }
+        .step-number { display: inline-block; width: 50px; height: 50px; background: #9d8867; color: #8b4a51; border-radius: 50%; line-height: 50px; font-weight: 700; margin-bottom: 15px; font-size: 20px; }
+        .upload-step.completed .step-number { background: #00cc00; color: white; }
+        .upload-step h4 { margin-bottom: 10px; font-size: 16px; }
+        .file-input-label { display: inline-block; background: #9d8867; color: #8b4a51; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s; font-size: 14px; margin-top: 15px; }
+        .file-input-label:hover { background: #ffed4e; transform: translateY(-2px); }
+        .file-input-label.disabled { background: #999; cursor: not-allowed; transform: none; }
+        input[type="file"] { display: none; }
+        .file-name { display: block; margin-top: 10px; font-size: 12px; opacity: 0.9; }
+        .upload-progress { width: 100%; height: 4px; background: rgba(255, 255, 255, 0.2); border-radius: 2px; margin-top: 10px; overflow: hidden; }
+        .upload-progress-bar { height: 100%; background: #00cc00; width: 0%; transition: width 0.3s; }
+        .pricing-section { background: linear-gradient(135deg, #a65d63 0%, #8b4a51 100%); color: white; padding: 60px 40px; text-align: center; border-radius: 12px; margin-bottom: 40px; }
+        .price-amount { font-size: 72px; font-weight: 700; color: #9d8867; margin: 20px 0; }
+        .price-timing { font-size: 20px; opacity: 0.95; margin-bottom: 30px; }
+        .payment-button { display: inline-block; background: #9d8867; color: #8b4a51; padding: 18px 50px; border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); }
+        .payment-button:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); }
+        .payment-button.disabled { background: #999; cursor: not-allowed; opacity: 0.6; }
+        .related-services { background: white; padding: 60px 40px; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .related-card { background: #f5f3f0; padding: 20px; border-radius: 8px; text-align: center; border: 2px solid transparent; transition: all 0.3s; }
+        .related-card:hover { border-color: #a65d63; transform: translateY(-3px); }
+        .related-card h4 { color: #3d6e63; margin-bottom: 10px; font-size: 16px; font-weight: 700; }
+        .related-card a { color: #a65d63; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 10px; }
+        footer { background: #1a1a1a; color: #999; padding: 40px; text-align: center; font-size: 14px; }
+        footer a { color: #a65d63; text-decoration: none; }
+        @media (max-width: 768px) { .hero h1 { font-size: 36px; } .section-title { font-size: 24px; } .price-amount { font-size: 48px; } .payment-button { width: 100%; padding: 14px 40px; font-size: 16px; } .container { padding: 0 20px; } .section { padding: 40px 20px; } }
+        .message { padding: 15px 20px; border-radius: 6px; margin-bottom: 20px; display: none; background: #e6ffe6; border-left: 4px solid #00cc00; color: #006600; }
+        .message.show { display: block; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">MiContaEnLínea Servicios</a>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/#servicios">Servicios</a></li>
+                <li><a href="/#como-funciona">Cómo funciona</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <a href="/">Inicio</a> / <a href="/">Servicios</a> / Declaraciones Mensuales
+    </div>
+
+    <section class="hero">
+        <div class="icon">📊</div>
+        <h1>Declaraciones Mensuales (ISR, IVA)</h1>
+        <p class="subtitle">Impuestos Presentados Correctamente ante el SAT</p>
+        <p class="description">
+            Presentación completa y oportuna de impuestos mensuales. Cumplimiento total con normas fiscales y plazos establecidos.
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">¿Qué está incluido?</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>📋 Recopilación de Datos</h4>
+                    <p>Recolectamos toda tu información fiscal del mes</p>
+                </div>
+                <div class="card">
+                    <h4>🧮 Cálculos Fiscales</h4>
+                    <p>Realizamos todos los cálculos de ISR e IVA</p>
+                </div>
+                <div class="card">
+                    <h4>📝 Llenado de Formas</h4>
+                    <p>Completamos formatos ante SAT correctamente</p>
+                </div>
+                <div class="card">
+                    <h4>✅ Validación</h4>
+                    <p>Verificamos datos antes de presentación</p>
+                </div>
+                <div class="card">
+                    <h4>📤 Presentación</h4>
+                    <p>Tramitamos ante autoridades por ti</p>
+                </div>
+                <div class="card">
+                    <h4>💯 Garantía</h4>
+                    <p>100% cumplimiento fiscal garantizado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: linear-gradient(135deg, #f5f3f0 0%, white 100%);">
+        <div class="container">
+            <h2 class="section-title">Beneficios de Nuestro Servicio</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>⚖️ Cumplimiento Total</h4>
+                    <p>100% acorde a normatividad SAT</p>
+                </div>
+                <div class="card">
+                    <h4>📅 Puntualidad</h4>
+                    <p>Presentamos en plazos establecidos</p>
+                </div>
+                <div class="card">
+                    <h4>🔍 Precisión</h4>
+                    <p>Cálculos precisos sin errores</p>
+                </div>
+                <div class="card">
+                    <h4>⚡ Rápido</h4>
+                    <p>24 a 72 horas procesamiento</p>
+                </div>
+                <div class="card">
+                    <h4>💼 Profesional</h4>
+                    <p>Asesoría de C.P Diego Silva</p>
+                </div>
+                <div class="card">
+                    <h4>🛡️ Seguro</h4>
+                    <p>Datos protegidos y confidenciales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aprende sobre Declaraciones Mensuales</h2>
+
+            <div class="edu-content">
+                <h4>💡 ¿Qué son Declaraciones Mensuales?</h4>
+                <p>
+                    Son reportes que presentas al SAT cada mes indicando impuestos a pagar (ISR e IVA). Son obligatorios si estás registrado como contribuyente.
+                </p>
+            </div>
+
+            <div class="edu-content">
+                <h4>🎯 ¿Quién debe hacerlas?</h4>
+                <ul>
+                    <li>Personas con ingresos por servicios profesionales</li>
+                    <li>Dueños de pequeños negocios</li>
+                    <li>Empresas personas morales</li>
+                    <li>Cualquiera con RFC activo registrado en SAT</li>
+                </ul>
+            </div>
+
+            <div class="edu-content">
+                <h4>📋 Qué incluyen nuestras declaraciones</h4>
+                <ul>
+                    <li>Declaración ISR (Impuesto sobre la Renta)</li>
+                    <li>Declaración IVA (Impuesto al Valor Agregado)</li>
+                    <li>Retenciones de terceros</li>
+                    <li>Deducciones permitidas</li>
+                    <li>Cálculos de pago o devolución</li>
+                </ul>
+            </div>
+
+            <div class="edu-content">
+                <h4>⏱️ Plazos y Frecuencia</h4>
+                <p>
+                    <strong>Frecuencia:</strong> Mensual<br>
+                    <strong>Vencimiento:</strong> Generalmente entre 15-20 del mes siguiente<br>
+                    <strong>Sanciones:</strong> Por retraso o incumplimiento<br>
+                    <strong>Nuestro Servicio:</strong> 24-72 horas antes del vencimiento
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #f5f3f0;">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cuáles son mis obligaciones mensuales?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    Presentar declaraciones de ISR e IVA al SAT. Nosotros realizamos todo el trabajo por ti.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Qué pasa si no presento a tiempo?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    El SAT cobra multas. Nuestro servicio garantiza presentación oportuna.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Puedo recibir devolución de impuestos?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    Sí, si tienes más retenciones que impuestos a pagar. Lo tramitamos por ti.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cuánto tarda el servicio?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    24 a 72 horas después de recibir tu información. Garantizado antes del vencimiento.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Sube tus documentos paso a paso</h2>
+            <div class="upload-section">
+                <h3>Validación Progresiva de Información</h3>
+                <p style="margin-bottom: 30px; opacity: 0.9;">Carga cada documento. No avanzas hasta validar correctamente.</p>
+
+                <div class="upload-steps">
+                    <div class="upload-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <h4>Registros Mensuales</h4>
+                        <p>Ingresos y gastos del mes</p>
+                        <label class="file-input-label active-upload" for="records-input">Seleccionar</label>
+                        <input type="file" id="records-input" accept=".pdf,.jpg,.png" data-step="1">
+                        <span class="file-name" id="records-name">Ningún archivo</span>
+                        <div class="upload-progress"><div class="upload-progress-bar" id="records-progress"></div></div>
+                        <div class="message" id="records-message"></div>
+                    </div>
+
+                    <div class="upload-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <h4>Facturas</h4>
+                        <p>CFDI emitidos y recibidos</p>
+                        <label class="file-input-label disabled" for="invoices-input">Seleccionar</label>
+                        <input type="file" id="invoices-input" accept=".pdf,.jpg,.png" data-step="2" disabled>
+                        <span class="file-name" id="invoices-name">Ningún archivo</span>
+                        <div class="upload-progress"><div class="upload-progress-bar" id="invoices-progress"></div></div>
+                        <div class="message" id="invoices-message"></div>
+                    </div>
+
+                    <div class="upload-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <h4>Gastos</h4>
+                        <p>Comprobantes de gastos deducibles</p>
+                        <label class="file-input-label disabled" for="expenses-input">Seleccionar</label>
+                        <input type="file" id="expenses-input" accept=".pdf,.jpg,.png" data-step="3" disabled>
+                        <span class="file-name" id="expenses-name">Ningún archivo</span>
+                        <div class="upload-progress"><div class="upload-progress-bar" id="expenses-progress"></div></div>
+                        <div class="message" id="expenses-message"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="pricing-section">
+                <h3>Precio del Servicio</h3>
+                <div class="price-amount">$1,500</div>
+                <p class="price-timing">Procesamiento en 24 a 72 horas</p>
+                <p style="font-size: 14px; opacity: 0.85; margin-bottom: 20px;">✓ ISR e IVA completos<br>✓ Presentación ante SAT<br>✓ Garantía de cumplimiento<br>✓ Asesoría incluida</p>
+
+                <button class="payment-button disabled" id="payment-button" disabled>
+                    Proceder al Pago
+                </button>
+
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 8px; margin-top: 20px; font-size: 14px;">
+                    El botón se habilitará cuando hayas cargado todos los documentos.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-services">
+        <div class="container">
+            <h2 class="section-title">Otros Servicios</h2>
+            <div class="related-grid">
+                <div class="related-card"><h4>📄 Facturación</h4><a href="/servicios/facturacion.html">Ver →</a></div>
+                <div class="related-card"><h4>🔄 Cambio Régimen</h4><a href="/servicios/cambio-regimen.html">Ver →</a></div>
+                <div class="related-card"><h4>🎯 Actividades</h4><a href="/servicios/actualizacion-actividades.html">Ver →</a></div>
+                <div class="related-card"><h4>☎️ Asesoría</h4><a href="/servicios/asesoria-telefonica.html">Ver →</a></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MiContaEnLínea | <a href="https://www.micontaenlinea.mx">Sitio Principal</a></p>
+        <p style="margin-top: 10px; font-size: 12px;">C.P Diego Silva Meneses</p>
+    </footer>
+
+    <script>
+        const SERVICE_CONFIG = { name: 'Declaraciones Mensuales', price: 1500, requiredDocs: [{ step: 1, id: 'records-input' }, { step: 2, id: 'invoices-input' }, { step: 3, id: 'expenses-input' }], uploadedFiles: {} };
+        SERVICE_CONFIG.requiredDocs.forEach(doc => { SERVICE_CONFIG.uploadedFiles[doc.id] = null; });
+        function setupFileInputs() { SERVICE_CONFIG.requiredDocs.forEach(doc => { const el = document.getElementById(doc.id); if (el) el.addEventListener('change', handleFileUpload); }); }
+        function handleFileUpload(event) { const input = event.target; const step = parseInt(input.dataset.step); const file = input.files[0]; if (!file) return; const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png']; if (!allowedTypes.includes(file.type)) return; if (file.size > 5242880) return; simulateUpload(step, file); }
+        function simulateUpload(step, file) { const progressBar = document.querySelector(`[data-step="${step}"] .upload-progress-bar`); const fileNameEl = document.querySelector(`[data-step="${step}"] .file-name`); const stepElement = document.querySelector(`[data-step="${step}"]`); let progress = 0; const interval = setInterval(() => { progress += Math.random() * 30; if (progress > 100) progress = 100; progressBar.style.width = progress + '%'; if (progress === 100) { clearInterval(interval); setTimeout(() => { stepElement.classList.add('completed'); fileNameEl.textContent = '✓ ' + file.name; fileNameEl.style.color = '#00cc00'; SERVICE_CONFIG.uploadedFiles[Object.keys(SERVICE_CONFIG.uploadedFiles)[step - 1]] = file; if (step < SERVICE_CONFIG.requiredDocs.length) { const nextStep = step + 1; document.querySelectorAll(`[data-step="${nextStep}"]`).forEach(el => { if (el.classList.contains('file-input-label')) { el.classList.remove('disabled'); } }); document.querySelector(`[data-step="${nextStep}"]`).classList.add('active'); } checkAllFilesUploaded(); }, 500); } }, 200); }
+        function checkAllFilesUploaded() { if (Object.values(SERVICE_CONFIG.uploadedFiles).every(f => f !== null)) { const btn = document.getElementById('payment-button'); btn.classList.remove('disabled'); btn.removeAttribute('disabled'); btn.textContent = 'Proceder al Pago - $1,500'; } }
+        document.querySelectorAll('.faq-item').forEach(item => { item.addEventListener('click', function() { const ans = this.querySelector('.faq-answer'); ans.style.display = ans.style.display === 'block' ? 'none' : 'block'; }); });
+        // Handle Payment Button - Mercado Pago Integration
+        document.getElementById('payment-button').addEventListener('click', function() {
+            if (!this.disabled) {
+                // Store service data in sessionStorage for thank you page
+                sessionStorage.setItem('serviceData', JSON.stringify({
+                    service: SERVICE_CONFIG.name,
+                    price: SERVICE_CONFIG.price,
+                    uploadedFiles: Object.keys(SERVICE_CONFIG.uploadedFiles),
+                    timestamp: new Date().toISOString()
+                }));
+
+                // Create Mercado Pago preference
+                const preference = {
+                    items: [
+                        {
+                            title: 'Declaraciones Mensuales (ISR, IVA)',
+                            description: 'Presentación profesional de impuestos mensuales ante el SAT',
+                            picture_url: 'https://via.placeholder.com/150',
+                            category_id: 'services',
+                            quantity: 1,
+                            unit_price: 1500
+                        }
+                    ],
+                    payer: {
+                        name: 'Cliente MiContaEnLínea',
+                        email: 'cliente@micontaenlinea.mx'
+                    },
+                    back_urls: {
+                        success: window.location.origin + '/gracias/declaraciones-mensuales.html',
+                        failure: window.location.href,
+                        pending: window.location.origin + '/gracias/declaraciones-mensuales.html'
+                    },
+                    external_reference: 'DECL-' + new Date().getTime(),
+                    auto_return: 'approved'
+                };
+
+                // Send preference to Mercado Pago
+                fetch('https://api.mercadopago.com/checkout/preferences', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer APP_USR-5989261956266905-072316-54872d394695455d7ac9833818cc7f09-3537857872'
+                    },
+                    body: JSON.stringify(preference)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.init_point) {
+                        // Redirect to Mercado Pago checkout
+                        window.location.href = data.init_point;
+                    } else {
+                        console.error('Error creating preference:', data);
+                        alert('Error al procesar el pago. Por favor intenta de nuevo.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Fallback to thank you page for testing
+                    window.location.href = '/gracias/declaraciones-mensuales.html?service=declaraciones&price=1500';
+                });
+            }
+        });
+        setupFileInputs();
+    </script>
+</body>
+</html>

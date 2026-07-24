@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /servicios/
+Allow: /gracias/
+Disallow: /img/
+Disallow: /img/servicios/
+Crawl-delay: 0
+User-agent: Googlebot
+Allow: /
+Allow: /servicios/
+Allow: /gracias/
+
+Sitemap: https://servicios.micontaenlinea.mx/sitemap.xml
