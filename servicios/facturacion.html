@@ -929,14 +929,6 @@
                             </div>
                         </div>
 
-                        <!-- Cliente Section -->
-                        <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 2px solid #e0e0e0;">
-                            <h4 style="color: #3d6e63; margin-bottom: 15px; font-weight: 700;">👤 Datos del Cliente</h4>
-                            <div>
-                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Nombre del Cliente *</label>
-                                <input type="text" id="client-name-field" placeholder="Nombre completo" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
-                            </div>
-                        </div>
 
                         <!-- Producto/Servicio Section -->
                         <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 2px solid #e0e0e0;">
@@ -970,7 +962,7 @@
                                     <option value="credito">Crédito</option>
                                 </select>
                             </div>
-                            <div>
+                            <div style="margin-bottom: 15px;">
                                 <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Forma de Pago *</label>
                                 <select id="payment-method-field" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit;">
                                     <option value="">-- Selecciona forma de pago --</option>
@@ -979,6 +971,10 @@
                                     <option value="tarjeta">Tarjeta de Crédito</option>
                                     <option value="cheque">Cheque</option>
                                 </select>
+                            </div>
+                            <div>
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Uso de la Factura *</label>
+                                <textarea id="invoice-use-field" placeholder="Describe el uso o propósito de esta factura..." style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; font-family: inherit; min-height: 80px; resize: vertical;"></textarea>
                             </div>
                         </div>
 
@@ -1127,18 +1123,18 @@
         function validateForm() {
             const cedulaClienteFile = document.getElementById('cedula-cliente-file').files.length > 0;
             const cedulaReceptorFile = document.getElementById('cedula-receptor-file').files.length > 0;
-            const clientName = document.getElementById('client-name-field').value.trim();
             const description = document.getElementById('description-field').value.trim();
             const quantity = document.getElementById('quantity-field').value;
             const price = document.getElementById('price-field').value;
             const paymentType = document.getElementById('payment-type-field').value;
             const paymentMethod = document.getElementById('payment-method-field').value;
+            const invoiceUse = document.getElementById('invoice-use-field').value.trim();
             const satUser = document.getElementById('sat-user-field').value.trim();
             const satPass = document.getElementById('sat-pass-field').value.trim();
             const cerFile = document.getElementById('cer-file-field').files.length > 0;
             const keyFile = document.getElementById('key-file-field').files.length > 0;
 
-            const isValid = cedulaClienteFile && cedulaReceptorFile && clientName && description && quantity && price && paymentType && paymentMethod && satUser && satPass && cerFile && keyFile;
+            const isValid = cedulaClienteFile && cedulaReceptorFile && description && quantity && price && paymentType && paymentMethod && invoiceUse && satUser && satPass && cerFile && keyFile;
             const paymentButton = document.getElementById('payment-button');
 
             if (isValid) {
@@ -1202,12 +1198,12 @@
 
         // Setup formulario
         function setupFileInputs() {
-            document.getElementById('client-name-field').addEventListener('input', validateForm);
             document.getElementById('description-field').addEventListener('input', validateForm);
             document.getElementById('quantity-field').addEventListener('input', validateForm);
             document.getElementById('price-field').addEventListener('input', validateForm);
             document.getElementById('payment-type-field').addEventListener('change', validateForm);
             document.getElementById('payment-method-field').addEventListener('change', validateForm);
+            document.getElementById('invoice-use-field').addEventListener('input', validateForm);
             document.getElementById('sat-user-field').addEventListener('input', validateForm);
             document.getElementById('sat-pass-field').addEventListener('input', validateForm);
 
