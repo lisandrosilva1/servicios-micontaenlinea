@@ -43,10 +43,34 @@
         }
 
         nav .logo {
-            font-size: 20px;
-            font-weight: 700;
-            color: #3d6e63;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c2c2c;
+            transition: opacity 0.3s ease;
+        }
+
+        nav .logo:hover {
+            opacity: 0.8;
+        }
+
+        nav .logo svg {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+        }
+
+        .logo-text .brand-main {
+            color: #2c2c2c;
+            font-weight: 700;
+        }
+
+        .logo-text .brand-accent {
+            color: #D4AF37;
+            font-weight: 700;
         }
 
         nav ul {
