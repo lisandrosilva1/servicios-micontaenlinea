@@ -13,47 +13,347 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c2c2c; background: #fafaf8; }
         nav { background: white; box-shadow: 0 2px 8px rgba(13, 90, 61, 0.1); position: sticky; top: 0; z-index: 100; }
         nav .container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; }
-        nav .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 700;
-            color: #2c2c2c;
-            transition: opacity 0.3s ease;
-        }
+        nav .logo { font-size: 20px; font-weight: 700; color: #3d6e63; text-decoration: none; }
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav a { color: #2c2c2c; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: #2d5e54; }
+        .breadcrumb { background: #f5f3f0; padding: 15px 40px; font-size: 14px; color: #666; border-bottom: 1px solid #d4d4ce; }
+        .breadcrumb a { color: #2d5e54; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .hero { background: linear-gradient(135deg, #9d8867 0%, #ffed4e 100%); color: #cc8800; padding: 80px 40px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: rgba(0, 0, 0, 0.05); border-radius: 50%; transform: translate(100px, -50px); }
+        .hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 20px; position: relative; z-index: 1; }
+        .hero .icon { font-size: 72px; margin-bottom: 20px; }
+        .hero .subtitle { font-size: 22px; color: #cc8800; font-weight: 600; margin-bottom: 15px; position: relative; z-index: 1; }
+        .hero .description { font-size: 18px; max-width: 700px; margin: 0 auto; opacity: 0.92; line-height: 1.8; position: relative; z-index: 1; }
+        .section { background: white; padding: 60px 40px; margin-bottom: 20px; }
+        .section-title { font-size: 32px; font-weight: 700; margin-bottom: 40px; color: #3d6e63; position: relative; padding-bottom: 20px; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background: #9d8867; border-radius: 2px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .card { background: #f5f3f0; padding: 25px; border-radius: 12px; border-left: 4px solid #9d8867; transition: all 0.3s; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255, 215, 0, 0.1); }
+        .card h4 { color: #cc8800; margin-bottom: 10px; font-weight: 700; }
+        .card p { color: #666; font-size: 14px; }
+        .edu-content { background: #fff9e6; border-left: 5px solid #9d8867; padding: 25px; border-radius: 8px; margin-bottom: 30px; }
+        .edu-content h4 { color: #cc8800; margin-bottom: 15px; font-weight: 700; }
+        .edu-content p, .edu-content li { color: #666; margin-bottom: 10px; }
+        .edu-content ul { margin-left: 20px; }
+        .faq-item { background: #f5f3f0; padding: 25px; border-radius: 12px; margin-bottom: 20px; cursor: pointer; border-left: 4px solid #9d8867; }
+        .faq-question { font-weight: 700; color: #3d6e63; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { color: #666; margin-top: 15px; display: none; }
+        .upload-section { background: linear-gradient(135deg, #9d8867 0%, #ffed4e 100%); color: #cc8800; padding: 40px; border-radius: 12px; margin-bottom: 40px; }
+        .upload-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .upload-step { background: rgba(0, 0, 0, 0.05); border: 2px dashed rgba(200, 136, 0, 0.3); border-radius: 10px; padding: 25px; text-align: center; transition: all 0.3s; }
+        .upload-step.completed { background: rgba(0, 255, 0, 0.1); border-color: #00ff00; }
+        .upload-step.active { background: rgba(255, 255, 255, 0.5); border-color: #cc8800; transform: scale(1.02); }
+        .step-number { display: inline-block; width: 50px; height: 50px; background: #9d8867; color: #cc8800; border-radius: 50%; line-height: 50px; font-weight: 700; margin-bottom: 15px; font-size: 20px; }
+        .upload-step.completed .step-number { background: #00cc00; color: white; }
+        .upload-step h4 { margin-bottom: 10px; font-size: 16px; color: #cc8800; }
+        .file-input-label { display: inline-block; background: #cc8800; color: white; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s; font-size: 14px; margin-top: 15px; }
+        .file-input-label:hover { background: #996600; transform: translateY(-2px); }
+        .file-input-label.disabled { background: #999; cursor: not-allowed; transform: none; }
+        input[type="file"] { display: none; }
+        .file-name { display: block; margin-top: 10px; font-size: 12px; opacity: 0.9; }
+        .upload-progress { width: 100%; height: 4px; background: rgba(200, 136, 0, 0.2); border-radius: 2px; margin-top: 10px; overflow: hidden; }
+        .upload-progress-bar { height: 100%; background: #00cc00; width: 0%; transition: width 0.3s; }
+        .pricing-section { background: linear-gradient(135deg, #9d8867 0%, #ffed4e 100%); color: #cc8800; padding: 60px 40px; text-align: center; border-radius: 12px; margin-bottom: 40px; }
+        .price-amount { font-size: 72px; font-weight: 700; color: #cc8800; margin: 20px 0; }
+        .price-timing { font-size: 20px; opacity: 0.95; margin-bottom: 30px; }
+        .payment-button { display: inline-block; background: #cc8800; color: white; padding: 18px 50px; border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 8px 20px rgba(204, 136, 0, 0.3); }
+        .payment-button:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(204, 136, 0, 0.4); }
+        .payment-button.disabled { background: #999; cursor: not-allowed; opacity: 0.6; }
+        .related-services { background: white; padding: 60px 40px; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .related-card { background: #f5f3f0; padding: 20px; border-radius: 8px; text-align: center; border: 2px solid transparent; transition: all 0.3s; }
+        .related-card:hover { border-color: #9d8867; transform: translateY(-3px); }
+        .related-card h4 { color: #3d6e63; margin-bottom: 10px; font-size: 16px; font-weight: 700; }
+        .related-card a { color: #9d8867; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 10px; }
+        footer { background: #1a1a1a; color: #999; padding: 40px; text-align: center; font-size: 14px; }
+        footer a { color: #9d8867; text-decoration: none; }
+        @media (max-width: 768px) { .hero h1 { font-size: 36px; } .section-title { font-size: 24px; } .price-amount { font-size: 48px; } .payment-button { width: 100%; padding: 14px 40px; font-size: 16px; } .container { padding: 0 20px; } .section { padding: 40px 20px; } }
+        .message { padding: 15px 20px; border-radius: 6px; margin-bottom: 20px; display: none; background: #e6ffe6; border-left: 4px solid #00cc00; color: #006600; }
+        .message.show { display: block; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">MiContaEnLínea Servicios</a>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/#servicios">Servicios</a></li>
+                <li><a href="/#como-funciona">Cómo funciona</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        nav .logo:hover {
-            opacity: 0.8;
-        }
+    <div class="breadcrumb">
+        <a href="/">Inicio</a> / <a href="/">Servicios</a> / Asesoría Telefónica
+    </div>
 
-        nav .logo svg {
-            width: 45px;
-            height: 45px;
-            flex-shrink: 0;
-        }
+    <section class="hero">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: left;">
+                <div class="icon">☎️</div>
+                <h1>Asesoría Telefónica 30 Minutos</h1>
+                <p class="subtitle">Consulta Directa con C.P Diego Silva Meneses</p>
+                <p class="description">
+                    Resuelve tus dudas fiscales directamente con un contador profesional. Sesión de 30 minutos programada a tu conveniencia.
+                </p>
+            </div>
+            <div>
+                <img src="/img/servicios/asesor-fiscal.jpg" alt="Asesoría Telefónica Fiscal" style="width: 100%; max-width: 400px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
+            </div>
+        </div>
+    </section>
 
-        .logo-text .brand-main {
-            color: #2c2c2c;
-            font-weight: 700;
-        }
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">¿Qué está incluido?</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>👤 Consulta Directa</h4>
+                    <p>Con C.P Diego Silva, contador profesional con 40 años de experiencia</p>
+                </div>
+                <div class="card">
+                    <h4>⏱️ 30 Minutos</h4>
+                    <p>Sesión completa de 30 minutos dedicada a tus dudas</p>
+                </div>
+                <div class="card">
+                    <h4>📞 Por Teléfono</h4>
+                    <p>Llamada a través de teléfono a la hora que elijas</p>
+                </div>
+                <div class="card">
+                    <h4>💡 Asesoría Personalizada</h4>
+                    <p>Soluciones específicas para tu situación fiscal</p>
+                </div>
+                <div class="card">
+                    <h4>📋 Recomendaciones</h4>
+                    <p>Recomendaciones prácticas y aplicables</p>
+                </div>
+                <div class="card">
+                    <h4>✅ Confidencialidad</h4>
+                    <p>Conversación completamente confidencial y privada</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        .logo-text .brand-accent {
-            color: #D4AF37;
-            font-weight: 700;
-        }
+    <section class="section" style="background: linear-gradient(135deg, #f5f3f0 0%, white 100%);">
+        <div class="container">
+            <h2 class="section-title">¿A quién le sirve?</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>🤔 Tengo Dudas Fiscales</h4>
+                    <p>Preguntas sobre impuestos o trámites SAT</p>
+                </div>
+                <div class="card">
+                    <h4>📊 Quiero Optimizar</h4>
+                    <p>Optimizar mi situación fiscal</p>
+                </div>
+                <div class="card">
+                    <h4>📈 Estoy Creciendo</h4>
+                    <p>Mi negocio creció y tengo nuevas preguntas</p>
+                </div>
+                <div class="card">
+                    <h4>🔄 Cambios en Régimen</h4>
+                    <p>Asesoría sobre cambio de régimen fiscal</p>
+                </div>
+                <div class="card">
+                    <h4>⚖️ Cumplimiento</h4>
+                    <p>Verificar que estoy en cumplimiento</p>
+                </div>
+                <div class="card">
+                    <h4>💼 Decisiones Comerciales</h4>
+                    <p>Asesoría en decisiones de negocio</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function setupFormValidation() {
-            document.getElementById('client-name').addEventListener('input', validateFormFields);
-            document.getElementById('client-phone').addEventListener('input', validateFormFields);
-            document.getElementById('client-date').addEventListener('change', validateFormFields);
-            document.getElementById('client-time').addEventListener('change', validateFormFields);
-        }
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Aprende sobre Asesoría Fiscal</h2>
 
+            <div class="edu-content">
+                <h4>💡 ¿Por qué asesoría profesional?</h4>
+                <p>
+                    Un contador profesional puede ahorrarte dinero en impuestos, evitar multas, y guiarte en decisiones comerciales. 30 minutos de asesoría pueden evitar errores costosos.
+                </p>
+            </div>
+
+            <div class="edu-content">
+                <h4>🎯 Temas que podemos tratar</h4>
+                <ul>
+                    <li>Interpretación de comprobantes fiscales</li>
+                    <li>Deudas o multas ante SAT</li>
+                    <li>Optimización de carga fiscal</li>
+                    <li>Cambio de régimen fiscal</li>
+                    <li>Obligaciones mensuales</li>
+                    <li>Expansión de negocio</li>
+                    <li>Estructura legal de empresa</li>
+                    <li>Deducciones permitidas</li>
+                </ul>
+            </div>
+
+            <div class="edu-content">
+                <h4>📋 Cómo preparar tu sesión</h4>
+                <ul>
+                    <li>Piensa en las preguntas específicas que tienes</li>
+                    <li>Recopila documentos relevantes (RFC, facturas)</li>
+                    <li>Ten a la mano tu situación fiscal actual</li>
+                    <li>Anota dudas para no olvidar nada</li>
+                    <li>Elige lugar tranquilo para la llamada</li>
+                </ul>
+            </div>
+
+            <div class="edu-content">
+                <h4>⏱️ Duración y Agenda</h4>
+                <p>
+                    <strong>Duración:</strong> 30 minutos exactos<br>
+                    <strong>Horario:</strong> De Lunes a Viernes, 9 AM - 5 PM<br>
+                    <strong>Programación:</strong> A tu conveniencia<br>
+                    <strong>Formato:</strong> Llamada telefónica<br>
+                    <strong>Seguimiento:</strong> Puedes escribir después si tienes dudas adicionales
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #f5f3f0;">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿De verdad hablo con C.P Diego Silva?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    Sí. Tienes acceso directo a C.P Diego Silva. No son empleados ni terceros.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Puedo hacer preguntas en español?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    Por supuesto. Es la consulta en español. Comunicación clara y en tu idioma.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Qué pasa si tengo más preguntas después?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    Puedes contactar después. Brindamos continuidad en tu asesoría fiscal.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Necesito documentos?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    Recomendamos tener disponibles documentos relevantes, pero no son obligatorios.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿La consulta es confidencial?</span>
+                    <span style="font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer">
+                    100% confidencial. Secreto profesional garantizado.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Agende tu consulta paso a paso</h2>
+            <div class="upload-section">
+                <h3>Información para tu Sesión</h3>
+                <p style="margin-bottom: 30px; opacity: 0.9; color: #cc8800;">Carga tu información para que preparemos mejor tu asesoría.</p>
+
+                <div class="upload-steps">
+                    <div class="upload-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <h4>Documentos Relevantes</h4>
+                        <p>RFC, facturas, o cualquier documento</p>
+                        <label class="file-input-label active-upload" for="docs-input">Seleccionar</label>
+                        <input type="file" id="docs-input" accept=".pdf,.jpg,.png" data-step="1">
+                        <span class="file-name" id="docs-name">Ningún archivo</span>
+                        <div class="upload-progress"><div class="upload-progress-bar" id="docs-progress"></div></div>
+                        <div class="message" id="docs-message"></div>
+                    </div>
+
+                    <div class="upload-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <h4>Tus Preguntas</h4>
+                        <p>Describe las dudas que tienes</p>
+                        <label class="file-input-label disabled" for="questions-input">Seleccionar</label>
+                        <input type="file" id="questions-input" accept=".pdf,.jpg,.png" data-step="2" disabled>
+                        <span class="file-name" id="questions-name">Ningún archivo</span>
+                        <div class="upload-progress"><div class="upload-progress-bar" id="questions-progress"></div></div>
+                        <div class="message" id="questions-message"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="pricing-section">
+                <h3>Precio de la Asesoría</h3>
+                <div class="price-amount">$450</div>
+                <p class="price-timing">30 minutos con C.P Diego Silva</p>
+                <p style="font-size: 14px; opacity: 0.85; margin-bottom: 20px;">✓ Consulta directa<br>✓ Profesional con 40 años de experiencia<br>✓ Completamente confidencial<br>✓ Programable a tu conveniencia</p>
+
+                <button class="payment-button disabled" id="payment-button" disabled>
+                    Proceder al Pago
+                </button>
+
+                <div style="background: rgba(0, 0, 0, 0.1); padding: 15px; border-radius: 8px; margin-top: 20px; font-size: 14px;">
+                    El botón se habilitará cuando hayas preparado tu información.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-services">
+        <div class="container">
+            <h2 class="section-title">Otros Servicios</h2>
+            <div class="related-grid">
+                <div class="related-card"><h4>📄 Facturación</h4><a href="/servicios/facturacion.html">Ver →</a></div>
+                <div class="related-card"><h4>🔄 Cambio Régimen</h4><a href="/servicios/cambio-regimen.html">Ver →</a></div>
+                <div class="related-card"><h4>🎯 Actividades</h4><a href="/servicios/actualizacion-actividades.html">Ver →</a></div>
+                <div class="related-card"><h4>📊 Declaraciones</h4><a href="/servicios/declaraciones-mensuales.html">Ver →</a></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MiContaEnLínea | <a href="https://www.micontaenlinea.mx">Sitio Principal</a></p>
+        <p style="margin-top: 10px; font-size: 12px;">C.P Diego Silva Meneses</p>
+    </footer>
+
+    <script>
+        const SERVICE_CONFIG = { name: 'Asesoría Telefónica 30 min', price: 450, requiredDocs: [{ step: 1, id: 'docs-input' }, { step: 2, id: 'questions-input' }], uploadedFiles: {} };
+        SERVICE_CONFIG.requiredDocs.forEach(doc => { SERVICE_CONFIG.uploadedFiles[doc.id] = null; });
+        function setupFileInputs() { SERVICE_CONFIG.requiredDocs.forEach(doc => { const el = document.getElementById(doc.id); if (el) el.addEventListener('change', handleFileUpload); }); }
+        function handleFileUpload(event) { const input = event.target; const step = parseInt(input.dataset.step); const file = input.files[0]; if (!file) return; simulateUpload(step, file); }
+        function simulateUpload(step, file) { const progressBar = document.querySelector(`[data-step="${step}"] .upload-progress-bar`); const fileNameEl = document.querySelector(`[data-step="${step}"] .file-name`); const stepElement = document.querySelector(`[data-step="${step}"]`); let progress = 0; const interval = setInterval(() => { progress += Math.random() * 30; if (progress > 100) progress = 100; progressBar.style.width = progress + '%'; if (progress === 100) { clearInterval(interval); setTimeout(() => { stepElement.classList.add('completed'); fileNameEl.textContent = '✓ ' + file.name; fileNameEl.style.color = '#00cc00'; SERVICE_CONFIG.uploadedFiles[Object.keys(SERVICE_CONFIG.uploadedFiles)[step - 1]] = file; if (step < SERVICE_CONFIG.requiredDocs.length) { const nextStep = step + 1; document.querySelectorAll(`[data-step="${nextStep}"]`).forEach(el => { if (el.classList.contains('file-input-label')) el.classList.remove('disabled'); }); document.querySelector(`[data-step="${nextStep}"]`).classList.add('active'); } checkAllFilesUploaded(); }, 500); } }, 200); }
+        function checkAllFilesUploaded() { if (Object.values(SERVICE_CONFIG.uploadedFiles).every(f => f !== null)) { const btn = document.getElementById('payment-button'); btn.classList.remove('disabled'); btn.removeAttribute('disabled'); btn.textContent = 'Proceder al Pago - $450'; } }
         document.querySelectorAll('.faq-item').forEach(item => { item.addEventListener('click', function() { const ans = this.querySelector('.faq-answer'); ans.style.display = ans.style.display === 'block' ? 'none' : 'block'; }); });
-
-        document.addEventListener('DOMContentLoaded', setupFormValidation);
         // Handle Payment Button - Mercado Pago Integration
         document.getElementById('payment-button').addEventListener('click', function() {
             if (!this.disabled) {
