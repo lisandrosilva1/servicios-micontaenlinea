@@ -89,41 +89,57 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(61, 110, 99, 0.75) 0%, rgba(45, 94, 84, 0.75) 100%), url('/img/servicios/dinero-fiscal.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: #f5f3f0;
             color: white;
-            padding: 100px 40px;
-            text-align: center;
+            padding: 0;
             min-height: 500px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            flex-direction: row;
+            justify-content: space-between;
             align-items: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            transform: translate(100px, -50px);
+        .hero-content {
+            flex: 1;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #3d6e63 0%, #2d5e54 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            z-index: 1;
+            box-shadow: 8px 8px 30px rgba(0, 0, 0, 0.15);
+            margin: 40px;
+            border-radius: 12px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 700;
             margin-bottom: 20px;
             line-height: 1.2;
             position: relative;
             z-index: 1;
+            text-align: left;
         }
 
         .hero .subtitle {
@@ -134,16 +150,18 @@
             z-index: 1;
             color: #9d8867;
             font-weight: 600;
+            text-align: left;
         }
 
         .hero .description {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            font-size: 16px;
+            max-width: 100%;
+            margin: 0 0 30px 0;
             opacity: 0.92;
             line-height: 1.8;
             position: relative;
             z-index: 1;
+            text-align: left;
         }
 
         /* Services Overview Section */
@@ -491,12 +509,37 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .hero-content {
+                width: 100%;
+                padding: 40px 20px;
+                margin: 20px;
+                border-radius: 12px;
+            }
+
+            .hero-image {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .hero-image img {
+                max-width: 100%;
+            }
+
             .hero h1 {
-                font-size: 36px;
+                font-size: 28px;
             }
 
             .hero .subtitle {
-                font-size: 20px;
+                font-size: 18px;
+            }
+
+            .hero .description {
+                font-size: 14px;
             }
 
             .section-title {
@@ -542,14 +585,19 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Tus Trámites del SAT en Horas</h1>
-        <p class="subtitle">Sin sorpresas ni retrasos</p>
-        <p class="description">
-            Resuelve tu SAT hoy, pago por servicio<br><br>
-            <strong>40 años brindando soluciones</strong><br>
-            Horario: 9 AM - 9 PM | Lunes a Domingo
-        </p>
-        <a href="#servicios" class="cta-button" style="background: #a65d63; color: white;">VER SERVICIOS</a>
+        <div class="hero-content">
+            <h1>Tus Trámites del SAT en Horas</h1>
+            <p class="subtitle">Sin sorpresas ni retrasos</p>
+            <p class="description">
+                Resuelve tu SAT hoy, pago por servicio<br><br>
+                <strong>40 años brindando soluciones</strong><br>
+                Horario: 9 AM - 9 PM | Lunes a Domingo
+            </p>
+            <a href="#servicios" class="cta-button" style="background: #a65d63; color: white;">VER SERVICIOS</a>
+        </div>
+        <div class="hero-image">
+            <img src="/img/servicios/dinero-fiscal.jpg" alt="Servicios fiscales profesionales">
+        </div>
     </section>
 
     <!-- Services Overview -->
