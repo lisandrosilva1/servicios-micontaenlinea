@@ -99,6 +99,59 @@
             color: #3d6e63;
         }
 
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #2c2c2c;
+            padding: 5px 10px;
+        }
+
+        @media (max-width: 768px) {
+            nav .container {
+                flex-wrap: wrap;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                gap: 0;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+                width: 100%;
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+
+            nav ul li {
+                padding: 0;
+            }
+
+            nav ul a {
+                display: block;
+                padding: 15px 40px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            nav ul a:last-child {
+                border-bottom: none;
+            }
+
+            .menu-toggle {
+                display: block;
+                order: 2;
+            }
+        }
+
         .breadcrumb {
             background: #f5f3f0;
             padding: 15px 40px;
@@ -613,7 +666,8 @@
                     <span class="brand-main">MiConta</span><span class="brand-accent">EnLinea</span>
                 </div>
             </a>
-            <ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul id="navMenu">
                 <li><a href="/">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#como-funciona">Cómo funciona</a></li>
@@ -802,6 +856,23 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         // gtag('config', 'GA_ID'); // Replace with actual GA4 ID
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('open');
+            });
+
+            // Close menu when a link is clicked
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('open');
+                });
+            });
+        }
     </script>
 </body>
 </html>
