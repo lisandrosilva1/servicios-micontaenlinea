@@ -1,18 +1,15 @@
 User-agent: *
 Allow: /
-Allow: /img/
-Allow: /servicios/
-Allow: /gracias/
-Disallow: /gracias/
+Disallow: /admin/
+Disallow: /private/
 
-Sitemap: https://servicios.micontaenlinea.mx/sitemap.xml
+Sitemap: https://www.micontaenlinea.mx/sitemap.xml
 
-# Google-specific rules
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
-# Bing-specific rules
 User-agent: Bingbot
 Allow: /
+
+# Crawl-delay
 Crawl-delay: 1

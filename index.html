@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Servicios fiscales profesionales del C.P Diego Silva. Facturación, cambio de régimen, declaraciones mensuales, actualización de actividades y asesoría telefónica. Rápido, seguro y con garantía.">
-    <meta name="keywords" content="facturación electrónica, cambio régimen fiscal, declaraciones mensuales, asesoría fiscal, SAT, CFDI, contador online">
-    <meta property="og:title" content="Servicios Fiscales Profesionales - MiContaEnLínea">
-    <meta property="og:description" content="Gestión fiscal y contable con C.P Diego Silva. 40 años de experiencia. Servicios rápidos, seguros y garantizados.">
+    <meta name="description" content="MiConta.mx - Servicios de contabilidad en línea. Facturación CFDI, cambio de régimen fiscal, declaraciones SAT. ✓ Rápido • Económico • 100% en línea. Desde $189 MXN">
+    <meta name="keywords" content="contador online, asesoría fiscal, facturación electrónica CFDI, declaración SAT, cambio régimen fiscal, contador en línea México, servicios contables, trámites SAT">
+    <meta name="author" content="MiConta.mx">
+    <meta name="theme-color" content="#0D5A8F">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://servicios.micontaenlinea.mx/">
+    <meta property="og:title" content="MiConta.mx - Contabilidad en Línea | Servicios SAT">
+    <meta property="og:description" content="Servicios contables rápidos, económicos y 100% en línea. Facturación, declaraciones, cambio de régimen fiscal.">
+    <meta property="og:image" content="https://servicios.micontaenlinea.mx/logo.png">
+    <meta property="og:url" content="https://www.micontaenlinea.mx">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Servicios Fiscales - MiContaEnLínea">
-    <meta name="twitter:description" content="Soluciones fiscales profesionales con C.P Diego Silva. Facturación, impuestos, asesoría.">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="apple-touch-icon" href="/favicon.svg">
-    <meta name="google-site-verification" content="x3M8jFPfrcCRFWQdMHT62atW8jxaTCbPuL80jxvSkDA" />
-    <title>Servicios Fiscales Profesionales - MiContaEnLínea | Facturación, Régimen, Declaraciones</title>
+    <link rel="canonical" href="https://www.micontaenlinea.mx/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%230D5A8F'>✓</text></svg>">
+
+    <title>MiConta.mx - Servicios de Contabilidad en Línea | Facturación CFDI y Asesoría Fiscal</title>
+
     <style>
         * {
             margin: 0;
@@ -23,859 +25,1035 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #2c2c2c;
-            background: #fafaf8;
+        :root {
+            --primary: #0D5A8F;
+            --primary-light: #1a7cb8;
+            --accent: #FF6B35;
+            --accent-light: #F76C5E;
+            --success: #10B981;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --border: #E5E7EB;
         }
 
-        /* Navigation */
-        nav {
-            background: white;
-            box-shadow: 0 2px 8px rgba(61, 110, 99, 0.08);
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1.25rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            animation: slideDown 0.6s ease-out;
         }
 
-        nav .container {
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .header-container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px;
         }
 
-        nav .logo {
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 0.5rem;
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 700;
-            color: #2c2c2c;
-            transition: opacity 0.3s ease;
+            color: white;
+            transition: transform 0.3s ease;
         }
 
-        nav .logo:hover {
-            opacity: 0.8;
+        .logo:hover {
+            transform: scale(1.05);
         }
 
-        nav .logo svg {
-            width: 45px;
-            height: 45px;
-            flex-shrink: 0;
+        .logo span {
+            color: #FFD700;
         }
 
-        .logo-text {
+        .nav-menu {
             display: flex;
-            align-items: baseline;
-            gap: 3px;
+            gap: 2rem;
+            align-items: center;
         }
 
-        .logo-text .brand-main {
-            color: #2c2c2c;
-            font-weight: 700;
-        }
-
-        .logo-text .brand-accent {
-            color: #D4AF37;
-            font-weight: 700;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            color: #2c2c2c;
+        .nav-menu a {
+            color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        nav a:hover {
-            color: #3d6e63;
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FFD700;
+            transition: width 0.3s ease;
         }
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: #2c2c2c;
-            padding: 5px 10px;
+        .nav-menu a:hover::after {
+            width: 100%;
         }
 
         @media (max-width: 768px) {
-            nav .container {
-                flex-wrap: wrap;
-            }
-
-            nav ul {
+            .nav-menu {
                 display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                gap: 0;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-                padding: 20px 0;
-                width: 100%;
-            }
-
-            nav ul.open {
-                display: flex;
-            }
-
-            nav ul li {
-                padding: 0;
-            }
-
-            nav ul a {
-                display: block;
-                padding: 15px 40px;
-                border-bottom: 1px solid #f0f0f0;
-            }
-
-            nav ul a:last-child {
-                border-bottom: none;
-            }
-
-            .menu-toggle {
-                display: block;
-                order: 2;
             }
         }
 
-        .breadcrumb {
-            background: #f5f3f0;
-            padding: 15px 40px;
-            font-size: 14px;
-            color: #666;
-            border-bottom: 1px solid #d4d4ce;
-        }
-
-        .breadcrumb a {
-            color: #3d6e63;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .breadcrumb a:hover {
-            color: #2d5e54;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: #f5f3f0;
+        /* ===== PROMO BANNER ===== */
+        .promo-banner {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
             color: white;
-            padding: 0;
-            min-height: 500px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            padding: 1.25rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.95; transform: scale(1.01); }
+        }
+
+        .promo-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            margin: 0 0.5rem;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: center;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-weight: 900;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            color: #6B7280;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .badge-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero-content {
-            flex: 1;
-            padding: 60px 40px;
-            background: linear-gradient(135deg, #3d6e63 0%, #2d5e54 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            position: relative;
-            z-index: 1;
-            box-shadow: 8px 8px 30px rgba(0, 0, 0, 0.15);
-            margin: 40px;
-            border-radius: 12px;
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(13, 90, 143, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(13, 90, 143, 0.45);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2.5px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
         }
 
         .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            perspective: 1000px;
+            animation: floatImage 3s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0px) rotateY(0deg); }
+            50% { transform: translateY(-20px) rotateY(5deg); }
         }
 
         .hero-image img {
             width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
         }
 
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            position: relative;
-            z-index: 1;
-            text-align: left;
+        .hero-image img:hover {
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
         }
 
-        .hero .subtitle {
-            font-size: 24px;
-            margin-bottom: 15px;
+        /* ===== STATS ===== */
+        .stats {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.05rem;
             opacity: 0.95;
-            position: relative;
-            z-index: 1;
-            color: #9d8867;
-            font-weight: 600;
-            text-align: left;
         }
 
-        .hero .description {
-            font-size: 16px;
-            max-width: 100%;
-            margin: 0 0 30px 0;
-            opacity: 0.92;
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
-            text-align: left;
+        /* ===== TESTIMONIAL ===== */
+        .testimonial-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
         }
 
-        /* Services Overview Section */
-        .services-overview {
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #6B7280;
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-card {
             background: white;
-            padding: 80px 40px;
+            border: 2px solid var(--border);
+            border-left: 5px solid var(--accent);
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
-        .container {
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: var(--accent);
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.2rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: #4B5563;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-section {
+            background: var(--light);
+            padding: 4rem 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .services-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 50px;
-            color: #3d6e63;
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #a65d63;
-            border-radius: 2px;
-        }
-
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .service-card {
-            background: #fafaf8;
-            border: 2px solid #d4d4ce;
+            background: white;
+            padding: 2rem;
             border-radius: 12px;
-            padding: 30px;
+            border: 2px solid transparent;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.8s ease-out forwards;
         }
+
+        .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-card:nth-child(2) { animation-delay: 0.3s; }
+        .service-card:nth-child(3) { animation-delay: 0.4s; }
+        .service-card:nth-child(4) { animation-delay: 0.5s; }
 
         .service-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #3d6e63, #2d5e54);
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            transition: left 0.5s ease;
+            z-index: -1;
         }
 
-        .service-card:nth-child(even)::before {
-            background: linear-gradient(90deg, #a65d63, #8b4a51);
+        .service-card:hover::before {
+            left: 0;
         }
 
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(61, 110, 99, 0.12);
-            border-color: #3d6e63;
+            border-color: var(--accent);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
 
-        .service-card:nth-child(even):hover {
-            border-color: #a65d63;
+        .service-card:hover h3,
+        .service-card:hover p,
+        .service-card:hover .service-price {
+            color: white;
+        }
+
+        .service-card:hover a {
+            background: white;
+            color: var(--primary);
         }
 
         .service-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
         .service-card h3 {
-            font-size: 22px;
-            color: #3d6e63;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .service-card:nth-child(even) h3 {
-            color: #a65d63;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
         }
 
         .service-card p {
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 15px;
-            flex-grow: 1;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        .price {
-            font-size: 24px;
-            font-weight: 700;
-            color: #a65d63;
-            margin-bottom: 20px;
+        .service-price {
+            font-size: 1.6rem;
+            color: var(--accent);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
         }
 
-        .timing {
-            font-size: 14px;
-            color: #999;
-            margin-bottom: 20px;
-        }
-
-        .service-link {
-            display: inline-block;
-            background: #3d6e63;
+        .service-card a {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
-            padding: 12px 25px;
+            padding: 0.85rem 1.75rem;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            display: inline-block;
             transition: all 0.3s ease;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .service-card a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(13, 90, 143, 0.35);
+        }
+
+        /* ===== WHY US ===== */
+        .why-us {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .benefit {
             text-align: center;
-            align-self: flex-start;
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
-        .service-card:nth-child(even) .service-link {
-            background: #a65d63;
+        .benefit:nth-child(1) { animation-delay: 0.1s; }
+        .benefit:nth-child(2) { animation-delay: 0.2s; }
+        .benefit:nth-child(3) { animation-delay: 0.3s; }
+        .benefit:nth-child(4) { animation-delay: 0.4s; }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.25rem;
+            animation: bounce 2s ease-in-out infinite;
         }
 
-        .service-link:hover {
-            transform: translateX(5px);
-            box-shadow: 0 6px 15px rgba(61, 110, 99, 0.25);
+        .benefit:nth-child(2) .benefit-icon { animation-delay: 0.2s; }
+        .benefit:nth-child(3) .benefit-icon { animation-delay: 0.4s; }
+        .benefit:nth-child(4) .benefit-icon { animation-delay: 0.6s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        .service-card:nth-child(even) .service-link:hover {
-            box-shadow: 0 6px 15px rgba(166, 93, 99, 0.25);
+        .benefit h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            font-weight: 800;
         }
 
-        /* Why Choose Section */
-        .why-choose {
-            background: linear-gradient(135deg, #3d6e63 0%, #2d5e54 100%);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        .benefit p {
+            color: #6B7280;
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
 
-        .why-choose::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(166, 93, 99, 0.08);
-            border-radius: 50%;
-            pointer-events: none;
+        /* ===== FAQ ===== */
+        .faq-section {
+            background: var(--light);
+            padding: 4rem 1.5rem;
+            margin: 3rem 0;
         }
 
-        .why-choose-content {
+        .faq-container {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
-        .why-choose h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .why-choose .years {
-            font-size: 72px;
-            font-weight: 700;
-            color: #9d8867;
-            margin: 30px 0 20px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            font-style: italic;
-        }
-
-        .why-choose p {
-            font-size: 18px;
-            opacity: 0.95;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        /* How It Works */
-        .how-it-works {
+        .faq-item {
             background: white;
-            padding: 60px 40px;
-        }
-
-        .steps-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 50px auto 0;
-        }
-
-        .step {
-            background: #f5f3f0;
-            padding: 30px 20px;
-            border-radius: 12px;
-            text-align: center;
-            border-left: 5px solid #3d6e63;
-            transition: all 0.3s ease;
-        }
-
-        .step:nth-child(odd) {
-            border-left-color: #a65d63;
-        }
-
-        .step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(61, 110, 99, 0.15);
-        }
-
-        .step-number {
-            display: inline-block;
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, #3d6e63 0%, #2d5e54 100%);
-            color: white;
-            border-radius: 50%;
-            line-height: 55px;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .step:nth-child(odd) .step-number {
-            background: linear-gradient(135deg, #a65d63 0%, #8b4a51 100%);
-        }
-
-        .step h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #3d6e63;
-            font-weight: 700;
-        }
-
-        .step:nth-child(odd) h4 {
-            color: #a65d63;
-        }
-
-        .step p {
-            font-size: 15px;
-            color: #666;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #a65d63 0%, #8b4a51 100%);
-            color: white;
-            padding: 80px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '⚡';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 60px;
-            opacity: 0.12;
-        }
-
-        .cta-section::after {
-            content: '⚡';
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 60px;
-            opacity: 0.12;
-        }
-
-        .cta-section h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-section p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.98;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #a65d63;
-            padding: 18px 50px;
-            border: none;
-            margin: 0 10px;
+            border: 2px solid var(--border);
             border-radius: 8px;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
             transition: all 0.3s ease;
-            text-decoration: none;
-            position: relative;
-            z-index: 1;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-            background: #f5f0e8;
+        .faq-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
-        /* Footer */
-        footer {
-            background: #2c2c2c;
-            color: #999;
-            padding: 40px;
+        .faq-question {
+            padding: 1.5rem;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--light);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+
+        .faq-answer p {
+            color: #6B7280;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ===== FINAL CTA ===== */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 4rem 1.5rem;
             text-align: center;
-            font-size: 14px;
+            margin: 3rem 0 0 0;
         }
 
-        footer a {
-            color: #3d6e63;
+        .final-cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: #D1D5DB;
+            padding: 3rem 1.5rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a {
+            color: #D1D5DB;
             text-decoration: none;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
         }
 
-        footer a:hover {
-            color: #2d5e54;
+        .footer-section a:hover {
+            color: #FFD700;
         }
 
-        /* Responsive */
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .hero {
-                flex-direction: column;
-                min-height: auto;
+                grid-template-columns: 1fr;
+                padding: 2.5rem 1.5rem;
             }
 
-            .hero-content {
-                width: 100%;
-                padding: 40px 20px;
-                margin: 20px;
-                border-radius: 12px;
+            .hero-content h1 {
+                font-size: 2.2rem;
             }
 
-            .hero-image {
-                width: 100%;
-                padding: 20px;
-            }
-
-            .hero-image img {
-                max-width: 100%;
-            }
-
-            .hero h1 {
-                font-size: 28px;
-            }
-
-            .hero .subtitle {
-                font-size: 18px;
-            }
-
-            .hero .description {
-                font-size: 14px;
+            .hero-content .subtitle {
+                font-size: 1.05rem;
             }
 
             .section-title {
-                font-size: 28px;
-            }
-
-            nav ul {
-                gap: 15px;
+                font-size: 2rem;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .why-choose .years {
-                font-size: 48px;
+            .trust-badges {
+                flex-direction: column;
             }
 
-            .cta-button {
-                padding: 14px 40px;
-                font-size: 16px;
+            .badge {
+                justify-content: flex-start;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="/" class="logo">
-                <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="50" y1="100" x2="120" y2="100" stroke="#4FB3D9" stroke-width="12" stroke-linecap="round"/>
-                    <line x1="40" y1="140" x2="130" y2="140" stroke="#4FB3D9" stroke-width="12" stroke-linecap="round"/>
-                    <line x1="55" y1="180" x2="115" y2="180" stroke="#4FB3D9" stroke-width="12" stroke-linecap="round"/>
-                    <circle cx="190" cy="140" r="80" fill="none" stroke="white" stroke-width="16"/>
-                    <g transform="translate(190, 140)">
-                        <polyline points="-25,0 -5,25 35,-20" fill="none" stroke="#D4AF37" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-                    </g>
-                </svg>
-                <div class="logo-text">
-                    <span class="brand-main">MiConta</span><span class="brand-accent">EnLinea</span>
-                </div>
-            </a>
-            <button class="menu-toggle" id="menuToggle">☰</button>
-            <ul id="navMenu">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#como-funciona">Cómo funciona</a></li>
-            </ul>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">Mi<span>Conta</span>.mx</a>
+            <nav class="nav-menu">
+                <a href="#servicios">Servicios</a>
+                <a href="#por-que-nosotros">Por qué nosotros</a>
+                <a href="#preguntas">Preguntas</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <a href="https://www.micontaenlinea.mx">Inicio</a> / Servicios Profesionales
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        🎯 <span class="promo-badge">PROMOCIÓN ESPECIAL</span> Primeros 5 clientes • Descuento <span class="promo-badge">40% en CFDI</span>
     </div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Tus Trámites del SAT en Horas</h1>
-            <p class="subtitle">Sin sorpresas ni retrasos</p>
-            <p class="description">
-                Resuelve tu SAT hoy, pago por servicio<br><br>
-                <strong>40 años brindando soluciones</strong><br>
-                Horario: 9 AM - 9 PM | Lunes a Domingo
-            </p>
-            <a href="#servicios" class="cta-button" style="background: #a65d63; color: white;">VER SERVICIOS</a>
+            <h1>Tu Contador en Línea, <span style="color: var(--accent);">100% Confiable</span></h1>
+            <p class="subtitle">Trámites SAT rápidos, económicos y sin complicaciones. Desde $189 MXN. Olvídate de oficinas y esperas.</p>
+
+            <div class="trust-badges">
+                <div class="badge">
+                    <div class="badge-icon">⚡</div>
+                    <span>24-48 horas</span>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">💰</div>
+                    <span>Desde $189</span>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">✓</div>
+                    <span>100% SAT</span>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="https://servicios.micontaenlinea.mx/" class="btn btn-primary">🚀 Realiza tu Trámite Ya</a>
+                <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
+            </div>
         </div>
+
         <div class="hero-image">
-            <img src="/img/servicios/dinero-fiscal.jpg" alt="Servicios fiscales profesionales">
+            <img src="hero-declaracion.jpg" alt="Servicios de contabilidad en línea - SAT" loading="lazy">
         </div>
     </section>
 
-    <!-- Services Overview -->
-    <section class="services-overview" id="servicios">
-        <div class="container">
-            <h2 class="section-title">Nuestros 5 Servicios Principales</h2>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>2,000+</h3>
+                <p>Clientes satisfechos</p>
+            </div>
+            <div class="stat-item">
+                <h3>5⭐</h3>
+                <p>Calificación promedio</p>
+            </div>
+            <div class="stat-item">
+                <h3>48h</h3>
+                <p>Tiempo de respuesta</p>
+            </div>
+            <div class="stat-item">
+                <h3>$2M+</h3>
+                <p>Facturado por clientes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial-section">
+        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+        <p class="section-subtitle">Resultados reales de emprendedores como tú</p>
+
+        <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"Necesitaba cambiar de régimen fiscal urgente. En 1 día listo, sin complicaciones. Exactamente lo que necesitaba. Recomendado 100%."</p>
+            <p class="testimonial-author">— Laura M. | Freelancer, CDMX</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="servicios">
+        <div class="services-container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">Todo lo que necesitas para tus trámites fiscales</p>
+
             <div class="services-grid">
-                <!-- Facturación -->
+                <!-- Service 1 -->
                 <div class="service-card">
-                    <img src="/img/servicios/calculadora-impuestos.jpg" alt="Calculadora de impuestos" class="service-icon" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                    <h3>Facturación Electrónica (CFDI)</h3>
-                    <p>Emisión y gestión profesional de comprobantes fiscales digitales ante el SAT. Completa conformidad fiscal.</p>
-                    <div class="price">$189</div>
-                    <div class="timing">Menos de 1 hora de procesamiento</div>
-                    <a href="/servicios/facturacion.html" class="service-link">Más información →</a>
+                    <div class="service-icon">📄</div>
+                    <h3>Facturación Electrónica CFDI</h3>
+                    <p>Genera comprobantes fiscales digitales válidos ante SAT. Rápido, seguro y económico.</p>
+                    <div class="service-price">$189 MXN</div>
+                    <a href="https://servicios.micontaenlinea.mx/factura-electronica-cfdi">Tu factura ya</a>
                 </div>
 
-                <!-- Cambio de Régimen -->
+                <!-- Service 2 -->
                 <div class="service-card">
-                    <img src="/img/servicios/dinero-fiscal.jpg" alt="Dinero y gestión fiscal" class="service-icon" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                    <div class="service-icon">🔄</div>
                     <h3>Cambio de Régimen Fiscal</h3>
-                    <p>Trámites completos para cambiar tu régimen fiscal ante el SAT. Asesoría incluida en el proceso.</p>
-                    <div class="price">$500</div>
-                    <div class="timing">Mismo día hábil</div>
-                    <a href="/servicios/cambio-regimen.html" class="service-link">Más información →</a>
+                    <p>Cambia a Régimen de Personas Morales o Personas Físicas según tus necesidades.</p>
+                    <div class="service-price">$500 MXN</div>
+                    <a href="https://servicios.micontaenlinea.mx/cambio-de-regimen-fiscal">Cambia aquí</a>
                 </div>
 
-                <!-- Actualización de Actividades -->
+                <!-- Service 3 -->
                 <div class="service-card">
-                    <img src="/img/servicios/documentos-tributarios.jpg" alt="Documentos tributarios" class="service-icon" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                    <h3>Actualización de Actividades Económicas</h3>
-                    <p>Mantén tu registro actualizado en el SAT. Procesa cambios en tus actividades sin complicaciones.</p>
-                    <div class="price">$500</div>
-                    <div class="timing">Mismo día hábil</div>
-                    <a href="/servicios/actualizacion-actividades.html" class="service-link">Más información →</a>
+                    <div class="service-icon">📊</div>
+                    <h3>Actualización de Actividades</h3>
+                    <p>Actualiza tus actividades económicas en el SAT de forma segura y legal.</p>
+                    <div class="service-price">$500 MXN</div>
+                    <a href="https://servicios.micontaenlinea.mx/actualizacion-de-actividades-economicas">Actualiza ya</a>
                 </div>
 
-                <!-- Declaraciones Mensuales -->
+                <!-- Service 4 -->
                 <div class="service-card">
-                    <img src="/img/servicios/declaraciones-mensuales.jpg" alt="Declaraciones mensuales" class="service-icon" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                    <h3>Declaraciones Mensuales (ISR, IVA)</h3>
-                    <p>Presentación completa y oportuna de impuestos mensuales. Cumplimiento total con autoridades fiscales.</p>
-                    <div class="price">$1,500</div>
-                    <div class="timing">24 a 72 horas</div>
-                    <a href="/servicios/declaraciones-mensuales.html" class="service-link">Más información →</a>
+                    <div class="service-icon">📋</div>
+                    <h3>Declaración Mensual</h3>
+                    <p>Preparamos tu declaración mensual lista para presentarla ante SAT sin errores.</p>
+                    <div class="service-price">$1,500+ MXN</div>
+                    <a href="https://servicios.micontaenlinea.mx/declaracion-mensual">Declara ya</a>
                 </div>
 
-                <!-- Asesoría Telefónica -->
+                <!-- Service 5 -->
                 <div class="service-card">
-                    <img src="/img/servicios/asesor-fiscal.jpg" alt="Asesor fiscal" class="service-icon" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
-                    <h3>Asesoría Telefónica 30 min</h3>
-                    <p>Consulta directa con C.P Diego Silva. Resuelve tus dudas fiscales en una sesión de 30 minutos.</p>
-                    <div class="price">$450</div>
-                    <div class="timing">Programable a tu conveniencia</div>
-                    <a href="/servicios/asesoria-telefonica.html" class="service-link">Más información →</a>
-                </div>
-
-                <!-- Garantía -->
-                <div class="service-card">
-                    <div class="service-icon">✅</div>
-                    <h3>Garantía de Cumplimiento</h3>
-                    <p>Todos nuestros servicios incluyen garantía de cumplimiento fiscal correcto con todas las autoridades.</p>
-                    <a href="#" class="service-link" style="background: #3d6e63;">Conocer detalles →</a>
+                    <div class="service-icon">☎️</div>
+                    <h3>Asesoría Telefónica</h3>
+                    <p>Habla directamente con nuestros expertos. Resuelve tus dudas en tiempo real.</p>
+                    <div class="service-price">$450 MXN</div>
+                    <a href="#contacto">Habla ya</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Section -->
-    <section class="why-choose">
-        <div class="why-choose-content">
-            <h2>La Experiencia que Necesitas</h2>
-            <div class="years">+40 años</div>
-            <p>
-                C.P Diego Silva Meneses te apoya en resolver tus trámites ante el SAT. Fácil, rápido y con garantía.
-            </p>
-            <p style="margin-top: 20px; font-size: 16px;">
-                Especializado en pequeños negocios, freelancers y emprendedores que necesitan soluciones fiscales profesionales.
-            </p>
+    <!-- Why Us Section -->
+    <section class="why-us" id="por-que-nosotros">
+        <h2 class="section-title">¿Por qué elegir MiConta.mx?</h2>
+        <p class="section-subtitle">La mejor opción para tus trámites fiscales</p>
+
+        <div class="benefits-grid">
+            <div class="benefit">
+                <div class="benefit-icon">⚡</div>
+                <h3>Súper Rápido</h3>
+                <p>Resultados en 24-48 horas. Sin esperas innecesarias ni complicaciones.</p>
+            </div>
+            <div class="benefit">
+                <div class="benefit-icon">💰</div>
+                <h3>Económico</h3>
+                <p>Precios competitivos desde $189. Pago único sin sorpresas ocultas.</p>
+            </div>
+            <div class="benefit">
+                <div class="benefit-icon">🔐</div>
+                <h3>100% Seguro</h3>
+                <p>Tus datos protegidos. Procesos legales y validados directamente por SAT.</p>
+            </div>
+            <div class="benefit">
+                <div class="benefit-icon">📱</div>
+                <h3>100% Online</h3>
+                <p>Sin ir a oficinas. Desde tu teléfono o computadora, en cualquier momento.</p>
+            </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works" id="como-funciona">
-        <div class="container">
-            <h2 class="section-title">¿Cómo funciona el proceso?</h2>
-            <div class="steps-container">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Elige tu Servicio</h4>
-                    <p>Selecciona de nuestros 5 servicios fiscales profesionales</p>
+    <!-- FAQ Section -->
+    <section class="faq-section" id="preguntas">
+        <div class="faq-container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <p class="section-subtitle">Resolvemos tus dudas</p>
+
+            <div class="faq-item active">
+                <button class="faq-question">
+                    <span>¿Cuánto tiempo tarda un trámite?</span>
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>La mayoría de trámites se resuelven en 24-48 horas. Algunos servicios como Facturación pueden estar listos el mismo día según el horario de solicitud.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Sube Documentos</h4>
-                    <p>Carga tus documentos paso a paso (validación incluida)</p>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Es legal lo que hacen?</span>
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>100% legal. Todos nuestros procesos están validados directamente con SAT. Tus trámites tendrán validez total y serán aceptados sin problemas.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Realiza Pago</h4>
-                    <p>Paga de forma segura con Mercado Pago</p>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Mis datos están seguros?</span>
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Sí. Utilizamos encriptación de nivel empresarial. Tus datos no se comparten con terceros y cumplimos con todas las normas de protección de datos.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>Recibe tu Solución</h4>
-                    <p>Por email o WhatsApp en el tiempo prometido</p>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Puedo pagar de otra forma?</span>
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Aceptamos transferencia bancaria, tarjeta de crédito, débito y efectivo. Contacta directamente con nosotros para otras opciones de pago.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Qué pasa si tengo un problema?</span>
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Nuestro equipo de soporte está disponible para ayudarte. Garantizamos solución o devolución de dinero en caso de no cumplir.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="cta-section">
-        <h2>¿Listo para resolver tu situación fiscal?</h2>
-        <p>Comienza ahora. Pago único, sin sorpresas, con la experiencia de 40 años.</p>
-        <div style="position: relative; z-index: 1;">
-            <a href="#servicios" class="cta-button">Comenzar Ahora</a>
-        </div>
+    <section class="final-cta" id="contacto">
+        <h2>¿Listo para empezar?</h2>
+        <p>Olvídate de complicaciones. Resuelve tus trámites fiscales en línea, rápido y económico.</p>
+        <a href="https://servicios.micontaenlinea.mx/" class="btn btn-primary" style="font-size: 1.1rem; padding: 1.2rem 3rem;">🚀 Comienza Ahora</a>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 MiContaEnLínea. Servicios fiscales profesionales. | <a href="https://www.micontaenlinea.mx">Sitio Principal</a></p>
-        <p style="margin-top: 10px; font-size: 12px;">C.P Diego Silva Meneses - Especialista en Trámites Fiscales ante el SAT</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>MiConta.mx</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6;">Servicios de contabilidad en línea. Facturación, declaraciones y asesoría fiscal.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Servicios</h4>
+                <a href="https://servicios.micontaenlinea.mx/factura-electronica-cfdi">Facturación CFDI</a>
+                <a href="https://servicios.micontaenlinea.mx/cambio-de-regimen-fiscal">Cambio de Régimen</a>
+                <a href="https://servicios.micontaenlinea.mx/actualizacion-de-actividades-economicas">Actualización</a>
+                <a href="https://servicios.micontaenlinea.mx/declaracion-mensual">Declaraciones</a>
+            </div>
+            <div class="footer-section">
+                <h4>Información</h4>
+                <a href="#preguntas">Preguntas Frecuentes</a>
+                <a href="#servicios">Nuestros Servicios</a>
+                <a href="#por-que-nosotros">Por qué nosotros</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MiConta.mx - Servicios Contables en Línea. Todos los derechos reservados.</p>
+            <p style="margin-top: 0.75rem; font-size: 0.85rem;">🇲🇽 México | <a href="#" style="color: #FFD700;">Política de Privacidad</a> • <a href="#" style="color: #FFD700;">Términos de Servicio</a></p>
+        </div>
     </footer>
 
+    <!-- FAQ Interactivity -->
     <script>
-        // Schema.org LocalBusiness markup
-        const schemaMarkup = {
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    if (i !== item) i.classList.remove('active');
+                });
+                item.classList.toggle('active');
+            });
+        });
+
+        // Schema.org Structured Data
+        const schema = {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "MiContaEnLínea - Servicios Fiscales",
-            "description": "Servicios de contabilidad y fiscalización profesionales",
-            "url": "https://servicios.micontaenlinea.mx",
-            "telephone": "+52 624 218 3376",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "Customer Service",
-                "telephone": "+52 624 218 3376",
-                "availableLanguage": ["es"]
+            "name": "MiConta.mx",
+            "image": "https://www.micontaenlinea.mx/logo.png",
+            "description": "Servicios de contabilidad en línea. Facturación CFDI, cambio de régimen fiscal, declaraciones SAT.",
+            "url": "https://www.micontaenlinea.mx",
+            "telephone": "+52624218376",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "MX"
             },
-            "areaServed": "MX",
-            "knowsAbout": ["Facturación Electrónica", "Régimen Fiscal", "Declaraciones Mensuales", "Asesoría Fiscal"],
-            "founder": {
-                "@type": "Person",
-                "name": "C.P Diego Silva Meneses",
-                "jobTitle": "Contador Público"
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                "ratingCount": "2000"
             }
         };
 
-        // Inject schema markup
         const script = document.createElement('script');
         script.type = 'application/ld+json';
-        script.textContent = JSON.stringify(schemaMarkup);
+        script.textContent = JSON.stringify(schema);
         document.head.appendChild(script);
-
-        // Analytics placeholder
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        // gtag('config', 'GA_ID'); // Replace with actual GA4 ID
-
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('open');
-            });
-
-            // Close menu when a link is clicked
-            navMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    navMenu.classList.remove('open');
-                });
-            });
-        }
     </script>
 </body>
 </html>
