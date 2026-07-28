@@ -8,15 +8,23 @@
     <meta name="author" content="MiConta.mx">
     <meta name="theme-color" content="#0D5A8F">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="MiConta.mx - Contabilidad en Línea | Servicios SAT">
+    <meta property="og:title" content="MiContaEnLinea.mx - Contabilidad en Línea | Servicios SAT">
     <meta property="og:description" content="Servicios contables rápidos, económicos y 100% en línea. Facturación, declaraciones, cambio de régimen fiscal.">
-    <meta property="og:image" content="https://servicios.micontaenlinea.mx/logo.png">
     <meta property="og:url" content="https://www.micontaenlinea.mx">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://www.micontaenlinea.mx/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%230D5A8F'>✓</text></svg>">
 
-    <title>MiConta.mx - Servicios de Contabilidad en Línea | Facturación CFDI y Asesoría Fiscal</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-THLWVWLHXE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-THLWVWLHXE');
+    </script>
+
+    <title>MiContaEnLinea.mx - Servicios de Contabilidad en Línea | Facturación CFDI y Asesoría Fiscal</title>
 
     <style>
         * {
@@ -301,15 +309,18 @@
             50% { transform: translateY(-20px) rotateY(5deg); }
         }
 
-        .hero-image img {
+        .hero-image-placeholder {
             width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-        }
-
-        .hero-image img:hover {
-            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            font-weight: bold;
         }
 
         /* ===== STATS ===== */
@@ -340,12 +351,16 @@
             opacity: 0.95;
         }
 
-        /* ===== TESTIMONIAL ===== */
-        .testimonial-section {
+        /* ===== SERVICES ===== */
+        .services-section {
+            background: var(--light);
+            padding: 4rem 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .services-container {
             max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-            text-align: center;
+            margin: 0 auto;
         }
 
         .section-title {
@@ -359,58 +374,6 @@
             font-size: 1.1rem;
             color: #6B7280;
             margin-bottom: 3rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            border: 2px solid var(--border);
-            border-left: 5px solid var(--accent);
-            padding: 2.5rem;
-            border-radius: 12px;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            border-color: var(--accent);
-        }
-
-        .stars {
-            color: #FFD700;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            letter-spacing: 0.2rem;
-        }
-
-        .testimonial-text {
-            font-size: 1.1rem;
-            color: #4B5563;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        /* ===== SERVICES ===== */
-        .services-section {
-            background: var(--light);
-            padding: 4rem 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .services-grid {
@@ -517,131 +480,6 @@
             box-shadow: 0 8px 20px rgba(13, 90, 143, 0.35);
         }
 
-        /* ===== WHY US ===== */
-        .why-us {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .benefit {
-            text-align: center;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .benefit:nth-child(1) { animation-delay: 0.1s; }
-        .benefit:nth-child(2) { animation-delay: 0.2s; }
-        .benefit:nth-child(3) { animation-delay: 0.3s; }
-        .benefit:nth-child(4) { animation-delay: 0.4s; }
-
-        .benefit-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.25rem;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        .benefit:nth-child(2) .benefit-icon { animation-delay: 0.2s; }
-        .benefit:nth-child(3) .benefit-icon { animation-delay: 0.4s; }
-        .benefit:nth-child(4) .benefit-icon { animation-delay: 0.6s; }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .benefit h3 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-            font-weight: 800;
-        }
-
-        .benefit p {
-            color: #6B7280;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* ===== FAQ ===== */
-        .faq-section {
-            background: var(--light);
-            padding: 4rem 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: white;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            border-color: var(--accent);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            background: white;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--primary);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: var(--light);
-        }
-
-        .faq-toggle {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            padding: 0 1.5rem;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-            padding: 0 1.5rem 1.5rem 1.5rem;
-        }
-
-        .faq-answer p {
-            color: #6B7280;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
         /* ===== FINAL CTA ===== */
         .final-cta {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
@@ -703,6 +541,8 @@
             padding-top: 2rem;
             text-align: center;
             font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -762,11 +602,10 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <a href="/" class="logo">Mi<span>Conta</span>.mx</a>
+            <a href="/" class="logo">MiConta<span>EnLinea</span>.mx</a>
             <nav class="nav-menu">
                 <a href="#servicios">Servicios</a>
-                <a href="#por-que-nosotros">Por qué nosotros</a>
-                <a href="#preguntas">Preguntas</a>
+                <a href="#contacto">Contacto</a>
             </nav>
         </div>
     </header>
@@ -804,7 +643,7 @@
         </div>
 
         <div class="hero-image">
-            <img src="hero-declaracion.jpg" alt="Servicios de contabilidad en línea - SAT" loading="lazy">
+            <div class="hero-image-placeholder">📊</div>
         </div>
     </section>
 
@@ -827,18 +666,6 @@
                 <h3>$2M+</h3>
                 <p>Facturado por clientes</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Testimonial -->
-    <section class="testimonial-section">
-        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-        <p class="section-subtitle">Resultados reales de emprendedores como tú</p>
-
-        <div class="testimonial-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p class="testimonial-text">"Necesitaba cambiar de régimen fiscal urgente. En 1 día listo, sin complicaciones. Exactamente lo que necesitaba. Recomendado 100%."</p>
-            <p class="testimonial-author">— Laura M. | Freelancer, CDMX</p>
         </div>
     </section>
 
@@ -884,102 +711,6 @@
                     <div class="service-price">$1,500+ MXN</div>
                     <a href="https://servicios.micontaenlinea.mx/declaracion-mensual">Declara ya</a>
                 </div>
-
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <div class="service-icon">☎️</div>
-                    <h3>Asesoría Telefónica</h3>
-                    <p>Habla directamente con nuestros expertos. Resuelve tus dudas en tiempo real.</p>
-                    <div class="service-price">$450 MXN</div>
-                    <a href="#contacto">Habla ya</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Us Section -->
-    <section class="why-us" id="por-que-nosotros">
-        <h2 class="section-title">¿Por qué elegir MiConta.mx?</h2>
-        <p class="section-subtitle">La mejor opción para tus trámites fiscales</p>
-
-        <div class="benefits-grid">
-            <div class="benefit">
-                <div class="benefit-icon">⚡</div>
-                <h3>Súper Rápido</h3>
-                <p>Resultados en 24-48 horas. Sin esperas innecesarias ni complicaciones.</p>
-            </div>
-            <div class="benefit">
-                <div class="benefit-icon">💰</div>
-                <h3>Económico</h3>
-                <p>Precios competitivos desde $189. Pago único sin sorpresas ocultas.</p>
-            </div>
-            <div class="benefit">
-                <div class="benefit-icon">🔐</div>
-                <h3>100% Seguro</h3>
-                <p>Tus datos protegidos. Procesos legales y validados directamente por SAT.</p>
-            </div>
-            <div class="benefit">
-                <div class="benefit-icon">📱</div>
-                <h3>100% Online</h3>
-                <p>Sin ir a oficinas. Desde tu teléfono o computadora, en cualquier momento.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section" id="preguntas">
-        <div class="faq-container">
-            <h2 class="section-title">Preguntas Frecuentes</h2>
-            <p class="section-subtitle">Resolvemos tus dudas</p>
-
-            <div class="faq-item active">
-                <button class="faq-question">
-                    <span>¿Cuánto tiempo tarda un trámite?</span>
-                    <span class="faq-toggle">▼</span>
-                </button>
-                <div class="faq-answer">
-                    <p>La mayoría de trámites se resuelven en 24-48 horas. Algunos servicios como Facturación pueden estar listos el mismo día según el horario de solicitud.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>¿Es legal lo que hacen?</span>
-                    <span class="faq-toggle">▼</span>
-                </button>
-                <div class="faq-answer">
-                    <p>100% legal. Todos nuestros procesos están validados directamente con SAT. Tus trámites tendrán validez total y serán aceptados sin problemas.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>¿Mis datos están seguros?</span>
-                    <span class="faq-toggle">▼</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Sí. Utilizamos encriptación de nivel empresarial. Tus datos no se comparten con terceros y cumplimos con todas las normas de protección de datos.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>¿Puedo pagar de otra forma?</span>
-                    <span class="faq-toggle">▼</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Aceptamos transferencia bancaria, tarjeta de crédito, débito y efectivo. Contacta directamente con nosotros para otras opciones de pago.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <span>¿Qué pasa si tengo un problema?</span>
-                    <span class="faq-toggle">▼</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Nuestro equipo de soporte está disponible para ayudarte. Garantizamos solución o devolución de dinero en caso de no cumplir.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -995,7 +726,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>MiConta.mx</h4>
+                <h4>MiContaEnLinea.mx</h4>
                 <p style="font-size: 0.9rem; line-height: 1.6;">Servicios de contabilidad en línea. Facturación, declaraciones y asesoría fiscal.</p>
             </div>
             <div class="footer-section">
@@ -1007,38 +738,25 @@
             </div>
             <div class="footer-section">
                 <h4>Información</h4>
-                <a href="#preguntas">Preguntas Frecuentes</a>
                 <a href="#servicios">Nuestros Servicios</a>
-                <a href="#por-que-nosotros">Por qué nosotros</a>
+                <a href="#contacto">Contacto</a>
+                <a href="https://www.micontaenlinea.mx">Inicio</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 MiConta.mx - Servicios Contables en Línea. Todos los derechos reservados.</p>
-            <p style="margin-top: 0.75rem; font-size: 0.85rem;">🇲🇽 México | <a href="#" style="color: #FFD700;">Política de Privacidad</a> • <a href="#" style="color: #FFD700;">Términos de Servicio</a></p>
+            <p>&copy; 2026 MiContaEnLinea.mx - Servicios Contables en Línea. Todos los derechos reservados.</p>
+            <p style="margin-top: 0.75rem; font-size: 0.85rem;">🇲🇽 México | Google Analytics Integrado</p>
         </div>
     </footer>
 
-    <!-- FAQ Interactivity -->
     <script>
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = button.parentElement;
-                document.querySelectorAll('.faq-item').forEach(i => {
-                    if (i !== item) i.classList.remove('active');
-                });
-                item.classList.toggle('active');
-            });
-        });
-
         // Schema.org Structured Data
         const schema = {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "MiConta.mx",
-            "image": "https://www.micontaenlinea.mx/logo.png",
+            "name": "MiContaEnLinea.mx",
             "description": "Servicios de contabilidad en línea. Facturación CFDI, cambio de régimen fiscal, declaraciones SAT.",
             "url": "https://www.micontaenlinea.mx",
-            "telephone": "+52624218376",
             "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "MX"
