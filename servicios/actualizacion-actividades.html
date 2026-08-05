@@ -708,76 +708,23 @@
         </div>
     </section>
 
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Sube tus documentos paso a paso</h2>
-            <div class="upload-section">
-                <h3>Validación Progresiva</h3>
-                <p style="margin-bottom: 30px; opacity: 0.9;">Cada documento debe cargarse con éxito antes de continuar.</p>
-
-                <div class="upload-steps">
-                    <div class="upload-step active" data-step="1">
-                        <div class="step-number">1</div>
-                        <h4>Licencia Actual</h4>
-                        <p>Licencia o registro actual de actividad</p>
-                        <div class="file-input-wrapper">
-                            <label class="file-input-label active-upload" for="license-input">Seleccionar</label>
-                            <input type="file" id="license-input" accept=".pdf,.jpg,.png" data-step="1">
-                            <span class="file-name" id="license-name">Ningún archivo</span>
-                        </div>
-                        <div class="upload-progress"><div class="upload-progress-bar" id="license-progress"></div></div>
-                        <div class="message" id="license-message"></div>
-                    </div>
-
-                    <div class="upload-step" data-step="2">
-                        <div class="step-number">2</div>
-                        <h4>RFC</h4>
-                        <p>Cédula o comprobante de RFC activo</p>
-                        <div class="file-input-wrapper">
-                            <label class="file-input-label disabled" for="rfc-input">Seleccionar</label>
-                            <input type="file" id="rfc-input" accept=".pdf,.jpg,.png" data-step="2" disabled>
-                            <span class="file-name" id="rfc-name">Ningún archivo</span>
-                        </div>
-                        <div class="upload-progress"><div class="upload-progress-bar" id="rfc-progress"></div></div>
-                        <div class="message" id="rfc-message"></div>
-                    </div>
-
-                    <div class="upload-step" data-step="3">
-                        <div class="step-number">3</div>
-                        <h4>Nuevas Actividades</h4>
-                        <p>Comprobante de nuevas actividades</p>
-                        <div class="file-input-wrapper">
-                            <label class="file-input-label disabled" for="activity-input">Seleccionar</label>
-                            <input type="file" id="activity-input" accept=".pdf,.jpg,.png" data-step="3" disabled>
-                            <span class="file-name" id="activity-name">Ningún archivo</span>
-                        </div>
-                        <div class="upload-progress"><div class="upload-progress-bar" id="activity-progress"></div></div>
-                        <div class="message" id="activity-message"></div>
-                    </div>
-                </div>
-            </div>
+    <!-- Solicitud por WhatsApp -->
+    <section class="section" id="contacto">
+        <div class="container" style="max-width: 560px; margin: 0 auto;">
+            <h2 class="section-title">Solicita tu Actualización de Actividades</h2>
+            <p style="text-align:center; color:#555; margin-bottom:1.75rem; line-height:1.6;">Déjanos tus datos y te contactamos por WhatsApp con el detalle y los datos de pago. Iniciamos el trámite una vez confirmado el pago. <strong>$500 MXN</strong>.</p>
+            <form id="lead-form" class="lead-form" novalidate>
+                <div class="lead-field"><label for="lf-nombre">Nombre</label>
+                    <input id="lf-nombre" type="text" placeholder="Tu nombre" required></div>
+                <div class="lead-field"><label for="lf-tel">WhatsApp</label>
+                    <input id="lf-tel" type="tel" inputmode="tel" placeholder="10 dígitos" required></div>
+                <div class="lead-field"><label for="lf-email">Email</label>
+                    <input id="lf-email" type="email" placeholder="tucorreo@ejemplo.com" required></div>
+                <button type="submit" class="lead-submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.34c0-4.54 3.7-8.24 8.24-8.24s8.24 3.7 8.24 8.24-3.7 8.24-8.24 8.24z"/></svg> Solicitar por WhatsApp</button>
+                <p class="lead-note">🔒 No pedimos tu contraseña del SAT ni tu e.firma. Solo los datos necesarios para tu trámite.</p>
+            </form>
         </div>
     </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="pricing-section">
-                <h3>Precio del Servicio</h3>
-                <div class="price-amount">$500</div>
-                <p class="price-timing">Procesamiento en el mismo día hábil</p>
-                <p style="font-size: 14px; opacity: 0.85; margin-bottom: 20px;">✓ Trámite completo ante SAT<br>✓ Análisis incluido<br>✓ Garantía de cumplimiento</p>
-
-                <button class="payment-button disabled" id="payment-button" disabled>
-                    Proceder al Pago
-                </button>
-
-                <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 8px; margin-top: 20px; font-size: 14px;">
-                    El botón se habilitará cuando hayas cargado todos los documentos.
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="related-services">
         <div class="container">
             <h2 class="section-title">Otros Servicios</h2>
@@ -803,184 +750,69 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 MiContaEnLínea | <a href="https://www.micontaenlinea.mx">Sitio Principal</a></p>
+        <p>&copy; 2026 MiContaEnLínea | <a href="https://www.micontaenlinea.mx">Sitio Principal</a></p>
         <p style="margin-top: 10px; font-size: 12px;">C.P Diego Silva Meneses</p>
     </footer>
 
+    <!-- Lead form + WhatsApp styles -->
+    <style>
+        .lead-form { max-width: 480px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 1.75rem 1.5rem 1.5rem; box-shadow: 0 12px 35px rgba(0,0,0,0.12); border: 1px solid #eee; text-align: left; }
+        .lead-field { margin-bottom: 1rem; }
+        .lead-field label { display: block; font-size: 0.85rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.4rem; }
+        .lead-field input { width: 100%; padding: 0.8rem 0.9rem; font-size: 1rem; border: 1.5px solid #d7dde5; border-radius: 10px; color: #1a1a1a; background: #fff; box-sizing: border-box; font-family: inherit; }
+        .lead-field input:focus { outline: none; border-color: #3d6e63; box-shadow: 0 0 0 3px rgba(61,110,99,0.15); }
+        .lead-submit { width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1rem; margin-top: 0.5rem; font-size: 1.05rem; font-weight: 800; color: #fff; background: #25D366; border: none; border-radius: 10px; cursor: pointer; transition: background 0.2s, transform 0.1s; }
+        .lead-submit:hover { background: #1ebe57; }
+        .lead-submit svg { width: 20px; height: 20px; }
+        .lead-note { margin: 0.9rem 0 0; font-size: 0.78rem; color: #6b7280; text-align: center; line-height: 1.4; }
+        .wa-float { position: fixed; right: 20px; bottom: 20px; width: 60px; height: 60px; border-radius: 50%; background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.28); z-index: 9999; transition: transform 0.15s; }
+        .wa-float:hover { transform: scale(1.08); }
+        .wa-float svg { width: 34px; height: 34px; }
+    </style>
+
+    <!-- Floating WhatsApp button -->
+    <a class="wa-float wa-link" data-msg="Hola, quiero información sobre Actualización de Actividades ($500)." aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.34c0-4.54 3.7-8.24 8.24-8.24s8.24 3.7 8.24 8.24-3.7 8.24-8.24 8.24z"/></svg></a>
+
     <script>
-        const SERVICE_CONFIG = {
-            name: 'Actualización de Actividades Económicas',
-            price: 500,
-            requiredDocs: [
-                { step: 1, id: 'license-input', name: 'Licencia' },
-                { step: 2, id: 'rfc-input', name: 'RFC' },
-                { step: 3, id: 'activity-input', name: 'Nuevas Actividades' }
-            ],
-            uploadedFiles: {}
-        };
-
-        SERVICE_CONFIG.requiredDocs.forEach(doc => {
-            SERVICE_CONFIG.uploadedFiles[doc.id] = null;
+        // FAQ toggle
+        document.querySelectorAll('.faq-item').forEach(function (item) {
+            item.addEventListener('click', function () { this.classList.toggle('active'); });
         });
 
-        function setupFileInputs() {
-            SERVICE_CONFIG.requiredDocs.forEach(doc => {
-                const el = document.getElementById(doc.id);
-                if (el) el.addEventListener('change', handleFileUpload);
+        // WhatsApp wiring
+        (function () {
+            var WA = '526242183376';
+            var SERVICIO = 'Actualización de Actividades ($500)';
+            document.querySelectorAll('.wa-link').forEach(function (a) {
+                var msg = a.getAttribute('data-msg') || '';
+                a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+                a.target = '_blank'; a.rel = 'noopener';
             });
-        }
-
-        function handleFileUpload(event) {
-            const input = event.target;
-            const step = parseInt(input.dataset.step);
-            const file = input.files[0];
-
-            if (!file) return;
-
-            const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
-            if (!allowedTypes.includes(file.type)) {
-                showMessage(step, '❌ Formato no permitido');
-                return;
-            }
-
-            if (file.size > 5242880) {
-                showMessage(step, '❌ Archivo muy grande (máx 5MB)');
-                return;
-            }
-
-            simulateUpload(step, file);
-        }
-
-        function simulateUpload(step, file) {
-            const progressBar = document.querySelector(`[data-step="${step}"] .upload-progress-bar`);
-            const fileNameEl = document.querySelector(`[data-step="${step}"] .file-name`);
-            const stepElement = document.querySelector(`[data-step="${step}"]`);
-            let progress = 0;
-
-            const interval = setInterval(() => {
-                progress += Math.random() * 30;
-                if (progress > 100) progress = 100;
-                progressBar.style.width = progress + '%';
-
-                if (progress === 100) {
-                    clearInterval(interval);
-
-                    setTimeout(() => {
-                        stepElement.classList.add('completed');
-                        stepElement.classList.remove('active');
-                        fileNameEl.textContent = '✓ ' + file.name;
-                        fileNameEl.style.color = '#00cc00';
-
-                        SERVICE_CONFIG.uploadedFiles[Object.keys(SERVICE_CONFIG.uploadedFiles)[step - 1]] = file;
-
-                        if (step < SERVICE_CONFIG.requiredDocs.length) {
-                            const nextStep = step + 1;
-                            document.querySelectorAll(`[data-step="${nextStep}"]`).forEach(el => {
-                                if (el.classList.contains('file-input-label')) {
-                                    el.classList.remove('disabled');
-                                    el.previousElementSibling.removeAttribute('disabled');
-                                } else if (el.tagName === 'INPUT') {
-                                    el.removeAttribute('disabled');
-                                }
-                            });
-                            document.querySelector(`[data-step="${nextStep}"]`).classList.add('active');
-                        }
-
-                        checkAllFilesUploaded();
-                    }, 500);
-                }
-            }, 200);
-        }
-
-        function showMessage(step, msg) {
-            const messageEl = document.querySelector(`[data-step="${step}"] .message`);
-            if (messageEl) {
-                messageEl.textContent = msg;
-                messageEl.className = 'message show';
-                setTimeout(() => messageEl.classList.remove('show'), 3000);
-            }
-        }
-
-        function checkAllFilesUploaded() {
-            if (Object.values(SERVICE_CONFIG.uploadedFiles).every(f => f !== null)) {
-                const btn = document.getElementById('payment-button');
-                btn.classList.remove('disabled');
-                btn.removeAttribute('disabled');
-                btn.textContent = 'Proceder al Pago - $500';
-            }
-        }
-
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', function() {
-                this.querySelector('.faq-answer').style.display =
-                    this.querySelector('.faq-answer').style.display === 'block' ? 'none' : 'block';
-            });
-        });
-
-        // Handle Payment Button - Mercado Pago Integration
-        document.getElementById('payment-button').addEventListener('click', function() {
-            if (!this.disabled) {
-                // Store service data in sessionStorage for thank you page
-                sessionStorage.setItem('serviceData', JSON.stringify({
-                    service: SERVICE_CONFIG.name,
-                    price: SERVICE_CONFIG.price,
-                    uploadedFiles: Object.keys(SERVICE_CONFIG.uploadedFiles),
-                    timestamp: new Date().toISOString()
-                }));
-
-                // Create Mercado Pago preference
-                const preference = {
-                    items: [
-                        {
-                            title: 'Actualización de Actividades Económicas',
-                            description: 'Trámite profesional de actualización de actividades económicas ante el SAT',
-                            picture_url: 'https://via.placeholder.com/150',
-                            category_id: 'services',
-                            quantity: 1,
-                            unit_price: 500
-                        }
-                    ],
-                    payer: {
-                        name: 'Cliente MiContaEnLínea',
-                        email: 'cliente@micontaenlinea.mx'
-                    },
-                    back_urls: {
-                        success: window.location.origin + '/gracias/actualizacion-actividades.html',
-                        failure: window.location.href,
-                        pending: window.location.origin + '/gracias/actualizacion-actividades.html'
-                    },
-                    external_reference: 'ACTIV-' + new Date().getTime(),
-                    auto_return: 'approved'
-                };
-
-                // Send preference to Mercado Pago
-                fetch('https://api.mercadopago.com/checkout/preferences', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer APP_USR-5989261956266905-072316-54872d394695455d7ac9833818cc7f09-3537857872'
-                    },
-                    body: JSON.stringify(preference)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.init_point) {
-                        // Redirect to Mercado Pago checkout
-                        window.location.href = data.init_point;
-                    } else {
-                        console.error('Error creating preference:', data);
-                        alert('Error al procesar el pago. Por favor intenta de nuevo.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    // Fallback to thank you page for testing
-                    window.location.href = '/gracias/actualizacion-actividades.html?service=actualizacion&price=500';
+            var form = document.getElementById('lead-form');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var nombre = (document.getElementById('lf-nombre').value || '').trim();
+                    var tel = (document.getElementById('lf-tel').value || '').trim();
+                    var email = (document.getElementById('lf-email').value || '').trim();
+                    if (!nombre || !tel || !email) { alert('Por favor completa nombre, WhatsApp y email.'); return; }
+                    var msg = 'Hola, soy ' + nombre + '. Quiero: ' + SERVICIO + '. Mi WhatsApp: ' + tel + '. Mi email: ' + email + '.';
+                    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank');
                 });
             }
-        });
+        })();
 
-        setupFileInputs();
+        // Schema.org Service markup
+        var schemaMarkup = {
+            "@context": "https://schema.org", "@type": "Service",
+            "name": "Actualización de Actividades Económicas", "description": "Actualización de actividades económicas ante el SAT",
+            "serviceType": "Fiscal Services", "areaServed": "MX", "priceRange": "$500",
+            "provider": { "@type": "LocalBusiness", "name": "MiContaEnLínea", "founder": "C.P Diego Silva Meneses" }
+        };
+        var s = document.createElement("script");
+        s.type = "application/ld+json";
+        s.textContent = JSON.stringify(schemaMarkup);
+        document.head.appendChild(s);
     </script>
 </body>
 </html>
