@@ -796,6 +796,7 @@
                 var msg = a.getAttribute('data-msg') || '';
                 a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
                 a.target = '_blank'; a.rel = 'noopener';
+                a.addEventListener('click', function () { if (window.gtag) gtag('event', 'whatsapp_click', { method: 'boton' }); });
             });
             var form = document.getElementById('lead-form');
             if (form) {
@@ -806,6 +807,7 @@
                     var email = (document.getElementById('lf-email').value || '').trim();
                     if (!nombre || !tel || !email) { alert('Por favor completa nombre, WhatsApp y email.'); return; }
                     var msg = 'Hola, soy ' + nombre + '. Quiero: ' + SERVICIO + '. Mi WhatsApp: ' + tel + '. Mi email: ' + email + '.';
+                    if (window.gtag) gtag('event', 'whatsapp_click', { method: 'formulario' });
                     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank');
                 });
             }

@@ -1192,6 +1192,7 @@
                 a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
                 a.target = '_blank';
                 a.rel = 'noopener';
+                a.addEventListener('click', function () { if (window.gtag) gtag('event', 'whatsapp_click', { method: 'boton' }); });
             });
             var form = document.getElementById('lead-form');
             if (form) {
@@ -1207,6 +1208,7 @@
                     }
                     var msg = 'Hola, soy ' + nombre + '. Quiero: ' + serv +
                         '. Mi WhatsApp: ' + tel + '. Mi email: ' + email + '.';
+                    if (window.gtag) gtag('event', 'whatsapp_click', { method: 'formulario' });
                     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank');
                 });
             }
