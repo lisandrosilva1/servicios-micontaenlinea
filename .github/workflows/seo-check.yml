@@ -1,0 +1,55 @@
+name: SEO check
+
+# Evita que se repita lo que paso al migrar de Wix: URLs indexadas que empiezan
+# a dar 404 y un sitemap desincronizado del sitio real.
+#
+#  - en cada push: comprueba que sitemap.xml y las redirecciones estan al dia
+#    con los archivos del repo, y que ninguna pagina indexable quedo sin canonical.
+#  - cada lunes: revisa el sitio EN VIVO (404s, canonicals, redirecciones).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 14 * * 1' # lunes 08:00 hora de México
+  workflow_dispatch:
+
+jobs:
+  repo:
+    name: Repo al día (sitemap, redirecciones, canonicals)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Regenerar artefactos
+        run: |
+          node tools/gen-redirects.mjs
+          node tools/fix-canonicals.mjs
+          node tools/gen-sitemap.mjs
+
+      - name: Fallar si algo quedó sin regenerar
+        run: |
+          # lastmod cambia cada dia: se ignora para no fallar por eso
+          if ! git diff --quiet -- . ':!sitemap.xml'; then
+            echo "::error::Hay cambios sin generar. Ejecuta los scripts de tools/ y haz commit."
+            git diff --stat -- . ':!sitemap.xml'
+            exit 1
+          fi
+          if ! git diff -- sitemap.xml | grep -qv 'lastmod' ; then
+            echo "sitemap.xml al día (solo cambia lastmod)"
+          fi
+
+  live:
+    name: Sitio en vivo sin 404
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node tools/verify-live.mjs https://www.micontaenlinea.mx

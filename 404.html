@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Página no encontrada | MiContaEnLinea.mx</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%230D5A8F'>✓</text></svg>">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-THLWVWLHXE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-THLWVWLHXE');
+      // Deja rastro de CADA 404 en GA4 para detectar enlaces rotos sin esperar
+      // a que Search Console avise semanas despues.
+      gtag('event', 'page_not_found', {
+        broken_path: location.pathname + location.search,
+        referrer: document.referrer || '(directo)'
+      });
+    </script>
+
+    <style>
+        :root { --primary: #0D5A8F; --accent: #FF6B35; --dark: #1F2937; --border: #E5E7EB; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fafaf8; color: #2c2c2c; line-height: 1.6;
+            display: flex; flex-direction: column; min-height: 100vh;
+        }
+        header { background: #fff; border-bottom: 1px solid var(--border); }
+        .header-container { max-width: 1100px; margin: 0 auto; padding: 1rem 1.5rem; }
+        .logo { font-weight: 700; font-size: 1.15rem; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--accent); }
+        main { flex: 1; max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; }
+        .code { font-size: 3.5rem; font-weight: 700; color: var(--primary); line-height: 1; }
+        h1 { font-size: 1.5rem; margin: 0.75rem 0 0.5rem; }
+        p.lead { color: #4b5563; margin-bottom: 2rem; }
+        .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; text-align: left; }
+        .links a {
+            display: block; background: #fff; border: 1px solid var(--border); border-radius: 10px;
+            padding: 0.9rem 1.1rem; text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.95rem;
+        }
+        .links a:hover { border-color: var(--primary); }
+        .cta { display: inline-block; margin-top: 2rem; background: var(--accent); color: #fff; text-decoration: none;
+               font-weight: 600; padding: 0.85rem 1.6rem; border-radius: 8px; }
+        footer { background: var(--dark); color: #d1d5db; text-align: center; padding: 1.5rem; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">MiConta<span>EnLinea</span>.mx</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="code">404</div>
+        <h1>No encontramos esa página</h1>
+        <p class="lead">Puede que el enlace sea antiguo o esté mal escrito. Estos son nuestros trámites:</p>
+
+        <div class="links">
+            <a href="/servicios/facturacion.html">Facturación CFDI · $189</a>
+            <a href="/servicios/cambio-regimen.html">Cambio de Régimen Fiscal</a>
+            <a href="/servicios/declaraciones-mensuales.html">Declaraciones Mensuales</a>
+            <a href="/servicios/actualizacion-actividades.html">Actualización de Actividades</a>
+            <a href="/servicios/asesoria-telefonica.html">Asesoría Telefónica</a>
+            <a href="/guias/que-es-resico.html">Guía: ¿Qué es el RESICO?</a>
+        </div>
+
+        <a class="cta wa-link" data-msg="Hola, llegué a una página que no existe en su sitio y necesito ayuda con un trámite del SAT.">Escríbenos por WhatsApp</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MiContaEnLinea.mx - Servicios Contables en Línea</p>
+    </footer>
+
+    <script>
+        (function () {
+            var WA = '526242183376';
+            document.querySelectorAll('.wa-link').forEach(function (a) {
+                a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(a.getAttribute('data-msg') || '');
+                a.target = '_blank';
+                a.rel = 'noopener';
+                a.addEventListener('click', function () { if (window.gtag) gtag('event', 'whatsapp_click', { method: 'error404' }); });
+            });
+        })();
+    </script>
+</body>
+</html>

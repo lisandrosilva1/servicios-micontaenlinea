@@ -1,0 +1,20 @@
+{
+  "_comment": "Mapa de URLs viejas (sitio Wix / subdominio servicios.) -> URL nueva. Ejecuta `node tools/gen-redirects.mjs` para regenerar los archivos de redireccion. NO edites los archivos generados a mano.",
+  "_generated_note": "Cada entrada genera <ruta>/index.html con canonical + meta refresh a la ruta nueva.",
+  "redirects": {
+    "/post/qué-es-el-resico-y-cómo-cambiar-de-régimen-fiscal-sin-errores": "/guias/que-es-resico.html",
+    "/post/declaración-mensual-qué-necesitas-y-cómo-evitar-multas-del-sat-2": "/servicios/declaraciones-mensuales.html",
+    "/post/declaración-mensual-qué-necesitas-y-cómo-evitar-multas-del-sat": "/servicios/declaraciones-mensuales.html",
+    "/post/facturación-electrónica-cfdi-guía-rápida-para-freelancers-en-méxico": "/servicios/facturacion.html",
+    "/post/facturación-electrónica-cfdi-guía-rápida-para-freelancers-en-méxico-2": "/servicios/facturacion.html",
+    "/post/facturación-electrónica-cfdi-guía-rápida-para-freelancers-en-méxico-4": "/servicios/facturacion.html",
+    "/post/actualización-de-actividades-económicas-ante-el-sat-cuándo-y-por-qué-hacerla": "/servicios/actualizacion-actividades.html",
+    "/book-online": "/servicios/",
+    "/blog": "/guias/que-es-resico.html",
+    "/factura-electronica-cfdi": "/servicios/facturacion.html",
+    "/declaracion-mensual": "/servicios/declaraciones-mensuales.html",
+    "/cambio-de-regimen-fiscal": "/servicios/cambio-regimen.html",
+    "/actualizacion-de-actividades-economicas": "/servicios/actualizacion-actividades.html",
+    "/asesoria-telefonica": "/servicios/asesoria-telefonica.html"
+  }
+}
