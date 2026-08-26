@@ -11,6 +11,44 @@
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=300339406122698&ev=PageView&noscript=1"/></noscript>
     <!-- End Meta Pixel Code -->
+
+    <!-- Conversión: esta página sólo se alcanza después de pagar. -->
+    <script>
+      (function () {
+        // El importe está impreso en esta misma página; se manda a Meta y a GA4
+        // para que ambos optimicen por ingreso y no por clic. Sin valor, Meta
+        // aprende a traer al que hace clic, no al que paga.
+        var VALUE = 500;
+        var ITEM = 'Actualización de actividades económicas';
+        var CURRENCY = 'MXN';
+
+        // Es una página estática: recargarla o volver a ella desde el historial
+        // volvería a contar la misma venta. Una marca por sesión y por servicio
+        // lo impide, y es el mismo criterio con el que Stripe cobra una vez.
+        var KEY = 'mcel_purchase_' + location.pathname;
+        try {
+          if (sessionStorage.getItem(KEY)) return;
+          sessionStorage.setItem(KEY, '1');
+        } catch (e) {
+          /* modo privado: preferimos contar de más que no contar */
+        }
+
+        if (window.fbq) {
+          fbq('track', 'Purchase', {
+            value: VALUE,
+            currency: CURRENCY,
+            content_name: ITEM,
+          });
+        }
+        if (window.gtag) {
+          gtag('event', 'purchase', {
+            value: VALUE,
+            currency: CURRENCY,
+            items: [{ item_name: ITEM }],
+          });
+        }
+      })();
+    </script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
