@@ -62,7 +62,7 @@ w2 = d.textlength("EnLinea", font=font("Arial Bold.ttf", 64))
 d.text((240 + w1 + w2, 118), ".mx", font=font("Arial Bold.ttf", 64), fill=WHITE)
 
 d.text((90, 290), "Trámites del SAT en línea,", font=font("Arial Bold.ttf", 54), fill=WHITE)
-d.text((90, 356), "con un contador real.", font=font("Arial Bold.ttf", 54), fill=WHITE)
+d.text((90, 356), "en Los Cabos y todo México.", font=font("Arial Bold.ttf", 54), fill=WHITE)
 
 d.text((90, 452), "Facturación CFDI  ·  Declaraciones mensuales  ·  Cambio de régimen",
        font=font("Arial.ttf", 27), fill=(206, 228, 244))
