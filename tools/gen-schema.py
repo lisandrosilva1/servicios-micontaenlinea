@@ -45,7 +45,10 @@ AUTHOR = {"@type": "Person", "name": "C.P Diego Silva Meneses"}
 PUBLISHER = {"@type": "Organization", "name": "MiContaEnLínea"}
 BASE = "https://www.micontaenlinea.mx/"
 
-MARK_START = "<!-- SCHEMA:START (generado por tools/gen-schema.py — no editar a mano) -->"
+# El marcador NO lleva la ruta del script. La llevaba, y al mover el archivo de
+# scripts/ a tools/ el marcador cambió, la siguiente corrida no reconoció el bloque
+# anterior y escribió un segundo juego de Article + FAQPage en la misma página.
+MARK_START = "<!-- SCHEMA:START (generado — no editar a mano) -->"
 MARK_END = "<!-- SCHEMA:END -->"
 
 
