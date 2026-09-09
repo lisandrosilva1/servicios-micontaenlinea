@@ -30,6 +30,10 @@ jobs:
           node tools/gen-redirects.mjs
           node tools/fix-canonicals.mjs
           node tools/gen-sitemap.mjs
+          # El JSON-LD de las guias se escribe desde el FAQ visible de cada pagina.
+          # Si alguien edita una pregunta y no regenera, este paso lo detiene: asi
+          # no vuelve a haber marcado que diga algo distinto de lo que se lee.
+          python3 tools/gen-schema.py
 
       - name: Fallar si algo quedó sin regenerar
         run: |
