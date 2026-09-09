@@ -120,4 +120,107 @@ def build(path: str, meta: dict) -> int:
     return 0
 
 
-sys.exit(sum(build(p, m) for p, m in GUIDES.items()))
+# La portada usa OTRO marcado para el FAQ que las guías: un <button> con el
+# triángulo dentro, no dos <span> hermanos. Un solo patrón no sirve para las dos.
+HOME_FAQ_ITEM = re.compile(
+    r'<div class="faq-item">\s*<button class="faq-question">\s*<span>(.*?)</span>'
+    r'\s*<span class="faq-toggle">.*?</span>\s*</button>\s*'
+    r'<div class="faq-answer">(.*?)</div>',
+    re.S,
+)
+
+# El objeto que la portada construía en JavaScript, y las tres líneas que lo
+# inyectaban. Se extrae tal cual está: nada se vuelve a teclear aquí.
+HOME_SCHEMA_OBJ = re.compile(r"\n\s*// Schema\.org.*?const schema = (\{.*?\});", re.S)
+HOME_SCHEMA_INJECT = re.compile(
+    r"\n\s*const script = document\.createElement\('script'\);"
+    r"\s*script\.type = 'application/ld\+json';"
+    r"\s*script\.textContent = JSON\.stringify\(schema\);"
+    r"\s*document\.head\.appendChild\(script\);",
+    re.S,
+)
+
+
+def build_home() -> int:
+    """La portada tenía el mismo defecto que la guía de RESICO: su JSON-LD lo
+    creaba JavaScript al cargar, así que no estaba en el HTML servido. Además
+    tenía cuatro preguntas a la vista sin ningún FAQPage que las marcara.
+
+    El LocalBusiness se toma del propio objeto que había en el script — no se
+    reescribe— y el FAQPage se lee de las preguntas visibles, igual que en las
+    guías. El <script> conserva el acordeón; sólo se le quita la inyección.
+    """
+    path = "index.html"
+    file = ROOT / path
+    src = file.read_text(encoding="utf-8")
+
+    obj = HOME_SCHEMA_OBJ.search(src)
+    if obj:
+        try:
+            business = json.loads(obj.group(1))
+        except json.JSONDecodeError as err:
+            print(f"{path}: el objeto schema del script no parsea ({err}) — no escribo nada")
+            return 1
+        src = HOME_SCHEMA_OBJ.sub("", src, count=1)
+        src = HOME_SCHEMA_INJECT.sub("", src, count=1)
+    else:
+        # Ya migrado en una corrida anterior: recuperar el LocalBusiness estático.
+        prev = re.search(
+            r'<script type="application/ld\+json">(\{"@context".*?"LocalBusiness".*?\})</script>',
+            src,
+        )
+        if not prev:
+            print(f"{path}: no encuentro el LocalBusiness ni en el script ni en el HTML")
+            return 1
+        business = json.loads(prev.group(1))
+
+    pairs = [(text_of(q), text_of(a)) for q, a in HOME_FAQ_ITEM.findall(src)]
+    if not pairs:
+        print(f"{path}: no encontré preguntas visibles — ¿cambió el marcado del FAQ?")
+        return 1
+
+    faq = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            }
+            for q, a in pairs
+        ],
+    }
+
+    block = (
+        MARK_START
+        + "\n"
+        + "\n".join(
+            '<script type="application/ld+json">'
+            + json.dumps(o, ensure_ascii=False, separators=(",", ":"))
+            + "</script>"
+            for o in (business, faq)
+        )
+        + "\n"
+        + MARK_END
+    )
+
+    if MARK_START in src:
+        out = re.sub(
+            re.escape(MARK_START) + r"[\s\S]*?" + re.escape(MARK_END), block, src, count=1
+        )
+    else:
+        out = src.replace("</head>", block + "\n</head>", 1)
+
+    visible = text_of(re.sub(r"<script[\s\S]*?</script>", " ", out))
+    for q, _ in pairs:
+        if q not in visible:
+            print(f"{path}: la pregunta «{q}» no está en el texto visible — no escribo nada")
+            return 1
+
+    file.write_text(out, encoding="utf-8")
+    print(f"{path}: LocalBusiness + FAQPage estáticos, {len(pairs)} preguntas leídas de la página")
+    return 0
+
+
+sys.exit(sum(build(p, m) for p, m in GUIDES.items()) + build_home())
